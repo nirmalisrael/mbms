@@ -292,6 +292,8 @@
     <Content Include="assets\vendor\fonts\fonts\boxicons.ttf" />
     <Content Include="assets\vendor\fonts\fonts\boxicons.woff" />
     <Content Include="assets\vendor\fonts\fonts\boxicons.woff2" />
+    <Content Include="WebUI\Member\AddMember.aspx" />
+    <Content Include="WebUI\Member\Member.aspx" />
     <Content Include="WebUI\Purchase\Orders.aspx" />
     <Content Include="WebUI\Staff\ViewStaff.aspx" />
     <Content Include="assets\vendor\fontawesome\less\brands.less" />
@@ -449,6 +451,20 @@
     </Compile>
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="WebUI\Member\AddMember.aspx.cs">
+      <DependentUpon>AddMember.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebUI\Member\AddMember.aspx.designer.cs">
+      <DependentUpon>AddMember.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebUI\Member\Member.aspx.cs">
+      <DependentUpon>Member.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebUI\Member\Member.aspx.designer.cs">
+      <DependentUpon>Member.aspx</DependentUpon>
     </Compile>
     <Compile Include="WebUI\Purchase\Orders.aspx.cs">
       <DependentUpon>Orders.aspx</DependentUpon>
