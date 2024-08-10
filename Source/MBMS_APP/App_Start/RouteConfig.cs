@@ -18,6 +18,8 @@ namespace MBMS_APP
             routes.MapPageRoute("Purchase Orders", "purchase-orders", "~/WebUI/Purchase/Orders.aspx");
             routes.MapPageRoute("View Admin", "view-admin", "~/WebUI/Admin/ViewAdmin.aspx");
             routes.MapPageRoute("View Staff", "view-staff", "~/WebUI/Staff/ViewStaff.aspx");
+            routes.MapPageRoute("Member", "member", "~/WebUI/Member/Member.aspx");
+            routes.MapPageRoute("Add Member", "add-member", "~/WebUI/Member/AddMember.aspx");
         }
     }
 }
