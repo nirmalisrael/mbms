@@ -18,6 +18,7 @@
         <link href="<%= ResolveUrl("~/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css") %>" rel="stylesheet" />
         <link href="<%= ResolveUrl("~/assets/vendor/libs/apex-charts/apex-charts.css") %>" rel="stylesheet" />
         <link rel="icon" type="image/x-icon" href="<%= ResolveUrl("~/assets/img/favicon/favicon.ico") %>" />
+        <link href=<%= ResolveUrl("assets/vendor/fontawesome/css/all.css") %> rel="stylesheet" />
     </asp:ContentPlaceHolder>
 </head>
 <body>
@@ -151,22 +152,26 @@
                         <li class="menu-item">
                             <a href="javascript:void(0);" class="menu-link menu-toggle">
                                 <%--<i class="menu-icon tf-icons bx bx-dock-top"></i>--%>
-                                <i class='menu-icon tf-icons bx bxs-purchase-tag'></i>
+                                <%--<i class='menu-icon tf-icons bx bxs-purchase-tag'></i>--%>
+                                <i class="menu-icon fa-solid fa-bag-shopping"></i>
                                 <div data-i18n="Purchase Details">Purchase Details</div>
                             </a>
                             <ul class="menu-sub">
                                 <li class="menu-item">
                                     <a href="/purchase-orders" class="menu-link">
+                                        <i class="px-1 fa-solid fa-tags"> </i> 
                                         <div data-i18n="Orders">Orders</div>
                                     </a>
                                 </li>
                                 <li class="menu-item">
                                     <a href="/admin-dashboard" class="menu-link">
+                                        <i class="px-1 fa-solid fa-cart-plus"></i>
                                         <div data-i18n="New Request">New Request</div>
                                     </a>
                                 </li>
                                 <li class="menu-item">
                                     <a href="/admin-dashboard" class="menu-link">
+                                        <i class="px-1 fa-solid fa-arrow-trend-up"></i>
                                         <div data-i18n="Goods Availability">Goods Availability</div>
                                     </a>
                                 </li>
