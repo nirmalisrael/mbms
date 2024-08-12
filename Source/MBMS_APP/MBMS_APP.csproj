@@ -230,6 +230,7 @@
     <Content Include="assets\vendor\libs\perfect-scrollbar\perfect-scrollbar.css" />
     <Content Include="assets\vendor\libs\perfect-scrollbar\perfect-scrollbar.js" />
     <Content Include="assets\vendor\libs\popper\popper.js" />
+    <Content Include="WebUI\Admin\AddAdmin.aspx" />
     <Content Include="WebUI\Admin\js\DeleteAdminConfirmation.js" />
     <Content Include="WebUI\Admin\ViewAdmin.aspx" />
     <Content Include="WebUI\Dashboard\Dashboard.aspx" />
@@ -296,6 +297,7 @@
     <Content Include="WebUI\Member\Member.aspx" />
     <Content Include="WebUI\Purchase\Orders.aspx" />
     <Content Include="WebUI\Purchase\PurchaseRequest.aspx" />
+    <Content Include="WebUI\Staff\AddStaff.aspx" />
     <Content Include="WebUI\Staff\ViewStaff.aspx" />
     <Content Include="assets\vendor\fontawesome\less\brands.less" />
     <Content Include="assets\vendor\fontawesome\less\fontawesome.less" />
@@ -392,6 +394,13 @@
       <DependentUpon>Admin.Master</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="WebUI\Admin\AddAdmin.aspx.cs">
+      <DependentUpon>AddAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebUI\Admin\AddAdmin.aspx.designer.cs">
+      <DependentUpon>AddAdmin.aspx</DependentUpon>
+    </Compile>
     <Compile Include="WebUI\Admin\ViewAdmin.aspx.cs">
       <DependentUpon>ViewAdmin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -480,6 +489,13 @@
     </Compile>
     <Compile Include="WebUI\Purchase\PurchaseRequest.aspx.designer.cs">
       <DependentUpon>PurchaseRequest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebUI\Staff\AddStaff.aspx.cs">
+      <DependentUpon>AddStaff.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebUI\Staff\AddStaff.aspx.designer.cs">
+      <DependentUpon>AddStaff.aspx</DependentUpon>
     </Compile>
     <Compile Include="WebUI\Staff\ViewStaff.aspx.cs">
       <DependentUpon>ViewStaff.aspx</DependentUpon>

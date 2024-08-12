@@ -17,10 +17,13 @@ namespace MBMS_APP
             routes.MapPageRoute("Admin Dashboard", "admin-dashboard", "~/WebUI/Dashboard/Dashboard.aspx");
             routes.MapPageRoute("Purchase Orders", "purchase-orders", "~/WebUI/Purchase/Orders.aspx");
             routes.MapPageRoute("New Request", "purchase-details/new-request", "~/WebUI/Purchase/PurchaseRequest.aspx");
+            routes.MapPageRoute("Add Admin", "add-admin", "~/WebUI/Admin/AddAdmin.aspx");
             routes.MapPageRoute("View Admin", "view-admin", "~/WebUI/Admin/ViewAdmin.aspx");
+            routes.MapPageRoute("Add Staff", "add-staff", "~/WebUI/Staff/AddStaff.aspx");
             routes.MapPageRoute("View Staff", "view-staff", "~/WebUI/Staff/ViewStaff.aspx");
             routes.MapPageRoute("Member", "member", "~/WebUI/Member/Member.aspx");
             routes.MapPageRoute("Add Member", "add-member", "~/WebUI/Member/AddMember.aspx");
+            
         }
     }
 }

@@ -9,9 +9,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace MBMS_APP.WebUI.Member
+namespace MBMS_APP.WebUI.Admin
 {
-    public partial class Add_Member : System.Web.UI.Page
+    public partial class AddAdmin : System.Web.UI.Page
     {
         UserService userService = new UserService();
         public int UserId { get; set; }
@@ -41,7 +41,7 @@ namespace MBMS_APP.WebUI.Member
         }
         #endregion
 
-        #region Bind Member Data
+        #region Bind Admin Data
         private void LoadRolesAndOrganizations()
         {
             try
@@ -91,10 +91,13 @@ namespace MBMS_APP.WebUI.Member
 
                         ddlRole.SelectedValue = row["RoleId"].ToString();
                         ddlOrganization.SelectedValue = row["OrganizationId"].ToString();
-                        txtPassword.Text = row["AadharNumber"].ToString();
+                        txtPassword.Text = row["Password"].ToString();
                         chkHostel.Checked = Convert.ToBoolean(row["IsHostel"]);
                         txtEmail.Text = row["UserName"].ToString();
                         txtPhoneNumber.Text = row["PhoneNumber"].ToString();
+                        txtAadharNumber.Text = row["AadharNumber"].ToString();
+                        chkIsStaffmember.Checked = Convert.ToBoolean(row["chkIsStaffmember"]);
+                        txtAddress.Text = row["Address"].ToString();
 
                         bool gender = Convert.ToBoolean(row["Gender"]);
                         rbMale.Checked = gender;
@@ -104,7 +107,7 @@ namespace MBMS_APP.WebUI.Member
                     }
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 new ErrorLog().WriteLog(ex);
             }
@@ -123,10 +126,13 @@ namespace MBMS_APP.WebUI.Member
                     LastName = txtLastName.Text,
                     Password = txtPassword.Text,
                     IsHostel = ConversionHelper.ToBoolean(chkHostel.Checked),
+                    IsStaffMember = ConversionHelper.ToBoolean(chkIsStaffmember.Checked),
                     DateOfBirth = DateTime.Parse(txtDateOfBirth.Text),
                     Gender = gender,
                     OrganizationId = Convert.ToInt32(ddlOrganization.SelectedValue),
                     PhoneNumber = txtPhoneNumber.Text,
+                    Address = txtAddress.Text,
+                    AadharNumber = txtAadharNumber.Text,
                     RoleId = Convert.ToInt32(ddlRole.SelectedValue),
                     Email = txtEmail.Text,
                 };
@@ -134,20 +140,20 @@ namespace MBMS_APP.WebUI.Member
                 userService.SaveOrUpdateUserDetails(user);
 
                 // Redirect to the details page after saving or updating
-                Response.Redirect("~/member-details", false);
+                Response.Redirect("~/view-admin", false);
             }
             catch (Exception ex)
             {
                 new ErrorLog().WriteLog(ex);
             }
         }
-        #region Save Member
+        #region Save Admin
         #endregion
 
 
         protected void btnCancel_Click(object sender, EventArgs e)
         {
-            Response.Redirect("/ViewAdmin");
+            Response.Redirect("/view-admin");
         }
     }
-}
+ }
