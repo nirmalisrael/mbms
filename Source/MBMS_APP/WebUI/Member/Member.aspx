@@ -6,7 +6,7 @@
             <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Details /</span> Member Details</h4>
 
             <!-- Basic Bootstrap Table -->
-                        <div class="row mb-3">
+            <div class="row mb-3">
                 <div class="col-md-2">
                     <asp:DropDownList ID="ddlPageSize" runat="server" CssClass="form-select" AutoPostBack="True" OnSelectedIndexChanged="ddlPageSize_SelectedIndexChanged">
                         <asp:ListItem Value="10">10 rows</asp:ListItem>
@@ -17,10 +17,13 @@
             </div>
 
             <div class="card">
-                <h5 class="card-header">Table Basic</h5>
+                <h5 class="card-header d-flex justify-content-between align-items-center">Table Members
+   
+                    <asp:LinkButton ID="btnNewMember" runat="server" class="btn btn-primary ms-auto" OnClick="btnNewMember_Click">New Member</asp:LinkButton>
+                </h5>
                 <div class="table-responsive text-nowrap">
-                    <asp:GridView ID="gvMembers" runat="server" CssClass="table" ClientIDMode="Static"  AutoGenerateColumns="false"
-                        AllowPaging="true" PageSize="10"   HeaderStyle-CssClass="thead table-header"
+                    <asp:GridView ID="gvMembers" runat="server" CssClass="table" ClientIDMode="Static" AutoGenerateColumns="false"
+                        AllowPaging="true" PageSize="10" HeaderStyle-CssClass="thead table-header thead-bg-color"
                         OnPageIndexChanging="gvMembers_PageIndexChanging">
                         <Columns>
                             <asp:BoundField DataField="UserId" HeaderText="User Id" Visible="false" />
@@ -39,7 +42,7 @@
                             <asp:BoundField DataField="RoleName" HeaderText="Role Name" />
                             <asp:TemplateField HeaderText="Hostler?">
                                 <ItemTemplate>
-                                    <asp:Label ID="lblGender" runat="server"
+                                    <asp:Label ID="lblIsHostel" runat="server"
                                         Text='<%# Convert.ToBoolean(Eval("IsHostel")) ? "Yes" : "No" %>'></asp:Label>
                                 </ItemTemplate>
                             </asp:TemplateField>
@@ -51,8 +54,8 @@
                                             <i class="bx bx-dots-vertical-rounded"></i>
                                         </button>
                                         <div class="dropdown-menu">
-                                            <asp:LinkButton ID="btnEdit" class="dropdown-item" href="javascript:void(0);" runat="server" CommandArgument='<%# Eval("UserId") %>' OnClick="btnEdit_Click" ><i class="bx bx-edit-alt me-1"></i> Edit</asp:LinkButton>
-                                            <asp:LinkButton ID="btnDelete" class="dropdown-item" href="javascript:void(0);" runat="server" CommandArgument='<%# Eval("UserId") %>' OnClick="btnDelete_Click" ><i class="bx bx-trash me-1"></i> Delete</asp:LinkButton>
+                                            <asp:LinkButton ID="btnEdit" class="dropdown-item" runat="server" CommandArgument='<%# Eval("UserId") %>' OnClick="btnEdit_Click"><i class="bx bx-edit-alt me-1"></i> Edit</asp:LinkButton>
+                                            <asp:LinkButton ID="btnDelete" class="dropdown-item" runat="server" CommandArgument='<%# Eval("UserId") %>' OnClick="btnDelete_Click" OnClientClick="Confirm()"><i class="bx bx-trash me-1"></i> Delete</asp:LinkButton>
                                         </div>
                                     </div>
                                 </ItemTemplate>
@@ -62,18 +65,18 @@
                         <PagerTemplate>
                             <nav aria-label="Page navigation">
                                 <ul class="pagination" style="justify-content: end;">
-                                     <li class="page-item">
-                                         <asp:LinkButton runat="server" CommandName="Page" CommandArgument="Prev" CssClass="page-link" Text="<i class='bx bx-chevron-left'></i>" />
+                                    <li class="page-item">
+                                        <asp:LinkButton runat="server" CommandName="Page" CommandArgument="Prev" CssClass="page-link" Text="<i class='bx bx-chevron-left'></i>" />
                                     </li>
-                                     <li class="page-item">
+                                    <li class="page-item">
                                         <asp:Label ID="lblCurrentPage" Text="1" runat="server" CssClass="bx page-link" />
                                     </li>
                                     <li class="page-item">
-                                         <asp:LinkButton runat="server" CommandName="Page" CommandArgument="Next" CssClass="page-link" Text="<i class='bx bx-chevron-right'></i>" />
+                                        <asp:LinkButton runat="server" CommandName="Page" CommandArgument="Next" CssClass="page-link" Text="<i class='bx bx-chevron-right'></i>" />
                                     </li>
-                             </ul>
-                         </nav>
-                    </PagerTemplate>
+                                </ul>
+                            </nav>
+                        </PagerTemplate>
                     </asp:GridView>
                 </div>
             </div>
