@@ -29,7 +29,7 @@ namespace MBMS_APP.WebUI.Purchsase
                 DataSet dataSet = purchaseService.GetPurchaseRequest(0, 0, 1);
                 DataTable ordersDT = new DataTable();
                 ordersDT = dataSet.Tables[0];
-                CommonHelper.AddSerialNumberColumnToDataTable(ordersDT);
+                CommonMethods.AddSerialNumberColumnToDataTable(ordersDT);
                 if (ordersDT.Rows.Count > 0)
                 {
                     gvPurchaseOrders.DataSource = ordersDT;
