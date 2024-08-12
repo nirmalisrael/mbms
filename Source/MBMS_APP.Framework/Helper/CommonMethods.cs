@@ -3,7 +3,7 @@ using System.Data;
 
 namespace MBMS_APP.Framework.Helper
 {
-    public static class CommonHelper
+    public static class CommonMethods
     {
         public static void AddSerialNumberColumnToDataTable(DataTable dt)
         {
