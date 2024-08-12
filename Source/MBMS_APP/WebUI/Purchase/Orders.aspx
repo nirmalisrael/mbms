@@ -22,7 +22,8 @@
                         AllowPaging="True" PageSize="10"
                         OnPageIndexChanging="gvPurchaseOrders_PageIndexChanging">
                         <Columns>
-                            <asp:BoundField DataField="RequestId" HeaderText="ID" Visible="false" />
+                            <asp:BoundField DataField="S. No" HeaderText="S. No" />
+                            <asp:BoundField DataField="RequestId" HeaderText="ID" />
                             <asp:BoundField DataField="RequestName" HeaderText="Request Name" />
                             <asp:BoundField DataField="NoOfItems" HeaderText="No Of Items" />
                             <asp:BoundField DataField="StatusId" Visible="false" />
@@ -56,7 +57,7 @@
                         <PagerStyle CssClass="table-alt-row table-border-bottom-0" />
                         <PagerTemplate>
                             <nav aria-label="Page navigation">
-                                <ul class="pagination" style="justify-content: end;">
+                                <ul class="pagination" >
                                     <li class="page-item">
                                         <asp:LinkButton runat="server" CommandName="Page" CommandArgument="Prev" CssClass="page-link" Text="<i class='bx bx-chevron-left'></i>" />
                                     </li>

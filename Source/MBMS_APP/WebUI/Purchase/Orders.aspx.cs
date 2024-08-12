@@ -29,6 +29,7 @@ namespace MBMS_APP.WebUI.Purchsase
                 DataSet dataSet = purchaseService.GetPurchaseRequest(0, 0, 1);
                 DataTable ordersDT = new DataTable();
                 ordersDT = dataSet.Tables[0];
+                CommonHelper.AddSerialNumberColumnToDataTable(ordersDT);
                 if (ordersDT.Rows.Count > 0)
                 {
                     gvPurchaseOrders.DataSource = ordersDT;
@@ -38,6 +39,27 @@ namespace MBMS_APP.WebUI.Purchsase
             catch (Exception ex)
             {
                 new ErrorLog().WriteLog(ex);
+            }
+        }
+
+        protected string GetBadgeClass(string status)
+        {
+            switch (status)
+            {
+                case "Draft":
+                    return "badge bg-label-secondary text-dark me-1";
+                case "Requested":
+                    return "badge bg-label-primary text-dark me-1";
+                case "Approved":
+                    return "badge bg-label-success text-dark me-1";
+                case "Purchased":
+                    return "badge bg-label-info text-dark me-1";
+                case "Received":
+                    return "badge bg-label-warning text-dark me-1";
+                case "Rejected":
+                    return "badge bg-label-danger text-dark me-1";
+                default:
+                    return "badge bg-label-secondary text-dark me-1";
             }
         }
         #endregion Methods
@@ -50,7 +72,6 @@ namespace MBMS_APP.WebUI.Purchsase
                 BindOrdersGrid();
             }
         }
-        #endregion Events
 
         protected void ddlPageSize_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -79,44 +100,25 @@ namespace MBMS_APP.WebUI.Purchsase
         protected void gvPurchaseOrders_RowDataBound(object sender, GridViewRowEventArgs e)
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
-    {
-        string status = DataBinder.Eval(e.Row.DataItem, "Status").ToString();
-        
-        // Find the cell that contains the status (assuming it's the first cell)
-        TableCell statusCell = e.Row.Cells[0];
-        
-        // Clear existing controls
-        statusCell.Controls.Clear();
-        
-        // Create a new span element
-        var badge = new HtmlGenericControl("span");
-        badge.Attributes.Add("class", GetBadgeClass(status));
-        badge.InnerText = status;
-        
-        // Add the badge to the cell
-        statusCell.Controls.Add(badge);
-    }
-        }
-        protected string GetBadgeClass(string status)
-        {
-            switch (status)
             {
-                case "Draft":
-                    return "badge bg-label-secondary text-dark me-1";
-                case "Requested":
-                    return "badge bg-label-primary text-dark me-1";
-                case "Approved":
-                    return "badge bg-label-success text-dark me-1";
-                case "Purchased":
-                    return "badge bg-label-info text-dark me-1";
-                case "Received":
-                    return "badge bg-label-warning text-dark me-1";
-                case "Rejected":
-                    return "badge bg-label-danger text-dark me-1";
-                default:
-                    return "badge bg-label-secondary text-dark me-1";
+                string status = DataBinder.Eval(e.Row.DataItem, "Status").ToString();
+
+                if (status != null && status != "")
+                {
+                    TableCell statusCell = e.Row.Cells[0];
+
+                    statusCell.Controls.Clear();
+
+                    var badge = new HtmlGenericControl("span");
+                    badge.Attributes.Add("class", GetBadgeClass(status));
+                    badge.InnerText = status;
+
+                    statusCell.Controls.Add(badge);
+                }
             }
         }
+
+        #endregion Events
 
     }
 }
