@@ -1,0 +1,9 @@
+-----------------------------------------------------------------------------------------
+Date/Time  :12-08-2024 - 09:41:48 AM
+Source/MSG :System.Web / 'ddlRole' has a SelectedValue which is invalid because it does not exist in the list of items.
+Parameter name: value
+StackTrace :   at System.Web.UI.WebControls.ListControl.PerformDataBinding(IEnumerable dataSource)
+   at System.Web.UI.WebControls.ListControl.OnDataBinding(EventArgs e)
+   at System.Web.UI.WebControls.ListControl.PerformSelect()
+   at MBMS_APP.WebUI.Member.Add_Member.LoadRolesAndOrganizations() in C:\Users\BSOFT-08-D-1A\source\repos\mbms\Source\MBMS_APP\WebUI\Member\AddMember.aspx.cs:line 56
+-----------------------------------------------------------------------------------------
