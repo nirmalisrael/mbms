@@ -1,6 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Admin.Master" CodeBehind="Orders.aspx.cs" Inherits="MBMS_APP.WebUI.Purchsase.Orders" %>
 
-<asp:Content ID="BodyContent" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<asp:Content ID="BodyContent" ContentPlaceHolderID="AdminMasterPage" runat="server">
     <main>
         <div class="container-xxl flex-grow-1 container-p-y">
             <h5 class="fw-bold py-2 mb-4"><span class="text-muted fw-light">Purchases Details/</span> Orders</h5>
@@ -16,7 +16,7 @@
             </div>
             <div class="card">
                 <div class="table-responsive text-nowrap">
-                    <asp:GridView runat="server" ID="gvPurchaseOrders" ClientIDMode="Static" AutoGenerateColumns="false" CssClass="table text-center"
+                    <asp:GridView runat="server" ID="gvPurchaseOrders" ClientIDMode="Static" AutoGenerateColumns="false" CssClass="table table-responsive text-center"
                         OnRowDataBound="gvPurchaseOrders_RowDataBound"
                         HeaderStyle-CssClass="thead table-header thead-bg-color"
                         AllowPaging="True" PageSize="10"
@@ -70,6 +70,7 @@
                             </nav>
                         </PagerTemplate>
                     </asp:GridView>
+
                 </div>
             </div>
             <!--/ Basic Bootstrap Table -->

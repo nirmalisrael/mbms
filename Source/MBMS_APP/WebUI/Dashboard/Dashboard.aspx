@@ -1,6 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Admin.Master" CodeBehind="Dashboard.aspx.cs" Inherits="MBMS_APP.WebUI.Dashboard.Dashboard" %>
 
-<asp:Content ID="BodyContent" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<asp:Content ID="BodyContent" ContentPlaceHolderID="AdminMasterPage" runat="server">
 
     <main>
         <div class="container-xxl flex-grow-1 container-p-y">

@@ -179,6 +179,41 @@
     <Content Include="assets\vendor\css\pages\page-icons.css" />
     <Content Include="assets\vendor\css\pages\page-misc.css" />
     <Content Include="assets\vendor\css\theme-default.css" />
+    <Content Include="assets\vendor\fontawesome\css\all.css" />
+    <Content Include="assets\vendor\fontawesome\css\all.min.css" />
+    <Content Include="assets\vendor\fontawesome\css\brands.css" />
+    <Content Include="assets\vendor\fontawesome\css\brands.min.css" />
+    <Content Include="assets\vendor\fontawesome\css\fontawesome.css" />
+    <Content Include="assets\vendor\fontawesome\css\fontawesome.min.css" />
+    <Content Include="assets\vendor\fontawesome\css\regular.css" />
+    <Content Include="assets\vendor\fontawesome\css\regular.min.css" />
+    <Content Include="assets\vendor\fontawesome\css\solid.css" />
+    <Content Include="assets\vendor\fontawesome\css\solid.min.css" />
+    <Content Include="assets\vendor\fontawesome\css\svg-with-js.css" />
+    <Content Include="assets\vendor\fontawesome\css\svg-with-js.min.css" />
+    <Content Include="assets\vendor\fontawesome\css\v4-font-face.css" />
+    <Content Include="assets\vendor\fontawesome\css\v4-font-face.min.css" />
+    <Content Include="assets\vendor\fontawesome\css\v4-shims.css" />
+    <Content Include="assets\vendor\fontawesome\css\v4-shims.min.css" />
+    <Content Include="assets\vendor\fontawesome\css\v5-font-face.css" />
+    <Content Include="assets\vendor\fontawesome\css\v5-font-face.min.css" />
+    <Content Include="assets\vendor\fontawesome\js\all.js" />
+    <Content Include="assets\vendor\fontawesome\js\all.min.js" />
+    <Content Include="assets\vendor\fontawesome\js\brands.js" />
+    <Content Include="assets\vendor\fontawesome\js\brands.min.js" />
+    <Content Include="assets\vendor\fontawesome\js\conflict-detection.js" />
+    <Content Include="assets\vendor\fontawesome\js\conflict-detection.min.js" />
+    <Content Include="assets\vendor\fontawesome\js\fontawesome.js" />
+    <Content Include="assets\vendor\fontawesome\js\fontawesome.min.js" />
+    <Content Include="assets\vendor\fontawesome\js\regular.js" />
+    <Content Include="assets\vendor\fontawesome\js\regular.min.js" />
+    <Content Include="assets\vendor\fontawesome\js\solid.js" />
+    <Content Include="assets\vendor\fontawesome\js\solid.min.js" />
+    <Content Include="assets\vendor\fontawesome\js\v4-shims.js" />
+    <Content Include="assets\vendor\fontawesome\js\v4-shims.min.js" />
+    <Content Include="assets\vendor\fontawesome\sprites\brands.svg" />
+    <Content Include="assets\vendor\fontawesome\sprites\regular.svg" />
+    <Content Include="assets\vendor\fontawesome\sprites\solid.svg" />
     <Content Include="assets\vendor\fonts\boxicons.css" />
     <Content Include="assets\vendor\fonts\boxicons\boxicons.svg" />
     <Content Include="assets\vendor\fonts\fonts\boxicons.svg" />
@@ -260,7 +295,61 @@
     <Content Include="WebUI\Member\AddMember.aspx" />
     <Content Include="WebUI\Member\Member.aspx" />
     <Content Include="WebUI\Purchase\Orders.aspx" />
+    <Content Include="WebUI\Purchase\PurchaseRequest.aspx" />
     <Content Include="WebUI\Staff\ViewStaff.aspx" />
+    <Content Include="assets\vendor\fontawesome\less\brands.less" />
+    <Content Include="assets\vendor\fontawesome\less\fontawesome.less" />
+    <Content Include="assets\vendor\fontawesome\less\regular.less" />
+    <Content Include="assets\vendor\fontawesome\less\solid.less" />
+    <Content Include="assets\vendor\fontawesome\less\v4-shims.less" />
+    <Content Include="assets\vendor\fontawesome\less\_animated.less" />
+    <Content Include="assets\vendor\fontawesome\less\_bordered-pulled.less" />
+    <Content Include="assets\vendor\fontawesome\less\_core.less" />
+    <Content Include="assets\vendor\fontawesome\less\_fixed-width.less" />
+    <Content Include="assets\vendor\fontawesome\less\_icons.less" />
+    <Content Include="assets\vendor\fontawesome\less\_list.less" />
+    <Content Include="assets\vendor\fontawesome\less\_mixins.less" />
+    <Content Include="assets\vendor\fontawesome\less\_rotated-flipped.less" />
+    <Content Include="assets\vendor\fontawesome\less\_screen-reader.less" />
+    <Content Include="assets\vendor\fontawesome\less\_shims.less" />
+    <Content Include="assets\vendor\fontawesome\less\_sizing.less" />
+    <Content Include="assets\vendor\fontawesome\less\_stacked.less" />
+    <Content Include="assets\vendor\fontawesome\less\_variables.less" />
+    <Content Include="assets\vendor\fontawesome\metadata\categories.yml" />
+    <Content Include="assets\vendor\fontawesome\metadata\icon-families.json" />
+    <Content Include="assets\vendor\fontawesome\metadata\icon-families.yml" />
+    <Content Include="assets\vendor\fontawesome\metadata\icons.json" />
+    <Content Include="assets\vendor\fontawesome\metadata\icons.yml" />
+    <Content Include="assets\vendor\fontawesome\metadata\shims.json" />
+    <Content Include="assets\vendor\fontawesome\metadata\shims.yml" />
+    <Content Include="assets\vendor\fontawesome\metadata\sponsors.yml" />
+    <Content Include="assets\vendor\fontawesome\scss\brands.scss" />
+    <Content Include="assets\vendor\fontawesome\scss\fontawesome.scss" />
+    <Content Include="assets\vendor\fontawesome\scss\regular.scss" />
+    <Content Include="assets\vendor\fontawesome\scss\solid.scss" />
+    <Content Include="assets\vendor\fontawesome\scss\v4-shims.scss" />
+    <Content Include="assets\vendor\fontawesome\scss\_animated.scss" />
+    <Content Include="assets\vendor\fontawesome\scss\_bordered-pulled.scss" />
+    <Content Include="assets\vendor\fontawesome\scss\_core.scss" />
+    <Content Include="assets\vendor\fontawesome\scss\_fixed-width.scss" />
+    <Content Include="assets\vendor\fontawesome\scss\_functions.scss" />
+    <Content Include="assets\vendor\fontawesome\scss\_icons.scss" />
+    <Content Include="assets\vendor\fontawesome\scss\_list.scss" />
+    <Content Include="assets\vendor\fontawesome\scss\_mixins.scss" />
+    <Content Include="assets\vendor\fontawesome\scss\_rotated-flipped.scss" />
+    <Content Include="assets\vendor\fontawesome\scss\_screen-reader.scss" />
+    <Content Include="assets\vendor\fontawesome\scss\_shims.scss" />
+    <Content Include="assets\vendor\fontawesome\scss\_sizing.scss" />
+    <Content Include="assets\vendor\fontawesome\scss\_stacked.scss" />
+    <Content Include="assets\vendor\fontawesome\scss\_variables.scss" />
+    <Content Include="assets\vendor\fontawesome\webfonts\fa-brands-400.ttf" />
+    <Content Include="assets\vendor\fontawesome\webfonts\fa-brands-400.woff2" />
+    <Content Include="assets\vendor\fontawesome\webfonts\fa-regular-400.ttf" />
+    <Content Include="assets\vendor\fontawesome\webfonts\fa-regular-400.woff2" />
+    <Content Include="assets\vendor\fontawesome\webfonts\fa-solid-900.ttf" />
+    <Content Include="assets\vendor\fontawesome\webfonts\fa-solid-900.woff2" />
+    <Content Include="assets\vendor\fontawesome\webfonts\fa-v4compatibility.ttf" />
+    <Content Include="assets\vendor\fontawesome\webfonts\fa-v4compatibility.woff2" />
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.0.js" />
     <Content Include="Scripts\jquery-3.7.0.min.js" />
@@ -384,6 +473,13 @@
     </Compile>
     <Compile Include="WebUI\Purchase\Orders.aspx.designer.cs">
       <DependentUpon>Orders.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebUI\Purchase\PurchaseRequest.aspx.cs">
+      <DependentUpon>PurchaseRequest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebUI\Purchase\PurchaseRequest.aspx.designer.cs">
+      <DependentUpon>PurchaseRequest.aspx</DependentUpon>
     </Compile>
     <Compile Include="WebUI\Staff\ViewStaff.aspx.cs">
       <DependentUpon>ViewStaff.aspx</DependentUpon>
