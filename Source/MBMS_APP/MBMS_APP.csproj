@@ -295,6 +295,7 @@
     <Content Include="WebUI\Member\AddMember.aspx" />
     <Content Include="WebUI\Member\Member.aspx" />
     <Content Include="WebUI\Purchase\Orders.aspx" />
+    <Content Include="WebUI\Purchase\PurchaseRequest.aspx" />
     <Content Include="WebUI\Staff\ViewStaff.aspx" />
     <Content Include="assets\vendor\fontawesome\less\brands.less" />
     <Content Include="assets\vendor\fontawesome\less\fontawesome.less" />
@@ -472,6 +473,13 @@
     </Compile>
     <Compile Include="WebUI\Purchase\Orders.aspx.designer.cs">
       <DependentUpon>Orders.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebUI\Purchase\PurchaseRequest.aspx.cs">
+      <DependentUpon>PurchaseRequest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebUI\Purchase\PurchaseRequest.aspx.designer.cs">
+      <DependentUpon>PurchaseRequest.aspx</DependentUpon>
     </Compile>
     <Compile Include="WebUI\Staff\ViewStaff.aspx.cs">
       <DependentUpon>ViewStaff.aspx</DependentUpon>
