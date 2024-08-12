@@ -4,7 +4,13 @@
 
 <html>
 <head runat="server">
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
+    />
     <title></title>
+    <meta name="description" content="" />
     <asp:ContentPlaceHolder ID="head" runat="server">
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -18,6 +24,7 @@
         <link href="<%= ResolveUrl("~/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css") %>" rel="stylesheet" />
         <link href="<%= ResolveUrl("~/assets/vendor/libs/apex-charts/apex-charts.css") %>" rel="stylesheet" />
         <link rel="icon" type="image/x-icon" href="<%= ResolveUrl("~/assets/img/favicon/favicon.ico") %>" />
+        <link href=<%= ResolveUrl("assets/vendor/fontawesome/css/all.css") %> rel="stylesheet" />
     </asp:ContentPlaceHolder>
 </head>
 <body>
@@ -170,23 +177,25 @@
                         <li class="menu-header small text-uppercase"><span class="menu-header-text">Maintanance</span></li>
                         <li class="menu-item">
                             <a href="javascript:void(0);" class="menu-link menu-toggle">
-                                <%--<i class="menu-icon tf-icons bx bx-dock-top"></i>--%>
-                                <i class='menu-icon tf-icons bx bxs-purchase-tag'></i>
+                                <i class="menu-icon fa-solid fa-bag-shopping"></i>
                                 <div data-i18n="Purchase Details">Purchase Details</div>
                             </a>
                             <ul class="menu-sub">
                                 <li class="menu-item">
                                     <a href="/purchase-orders" class="menu-link">
+                                        <i class="px-1 fa-solid fa-tags"> </i> 
                                         <div data-i18n="Orders">Orders</div>
                                     </a>
                                 </li>
                                 <li class="menu-item">
-                                    <a href="/admin-dashboard" class="menu-link">
+                                    <a href="/purchase-details/new-request" class="menu-link">
+                                        <i class="px-1 fa-solid fa-cart-plus"></i>
                                         <div data-i18n="New Request">New Request</div>
                                     </a>
                                 </li>
                                 <li class="menu-item">
                                     <a href="/admin-dashboard" class="menu-link">
+                                        <i class="px-1 fa-solid fa-arrow-trend-up"></i>
                                         <div data-i18n="Goods Availability">Goods Availability</div>
                                     </a>
                                 </li>
@@ -349,7 +358,7 @@
                         </div>
                     </nav>
                     <div class="content-wrapper">
-                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                        <asp:ContentPlaceHolder ID="AdminMasterPage" runat="server">
                         </asp:ContentPlaceHolder>
                         <footer class="content-footer footer bg-footer-theme">
                             <div class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
