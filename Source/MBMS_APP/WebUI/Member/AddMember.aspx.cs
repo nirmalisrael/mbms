@@ -88,10 +88,9 @@ namespace MBMS_APP.WebUI.Member
                         {
                             txtDateOfBirth.Text = dateOfBirth.ToString("yyyy-MM-dd");
                         }
-
                         ddlRole.SelectedValue = row["RoleId"].ToString();
                         ddlOrganization.SelectedValue = row["OrganizationId"].ToString();
-                        txtPassword.Text = row["AadharNumber"].ToString();
+                        txtPassword.Text = row["Password"].ToString();
                         chkHostel.Checked = Convert.ToBoolean(row["IsHostel"]);
                         txtEmail.Text = row["UserName"].ToString();
                         txtPhoneNumber.Text = row["PhoneNumber"].ToString();
@@ -134,7 +133,7 @@ namespace MBMS_APP.WebUI.Member
                 userService.SaveOrUpdateUserDetails(user);
 
                 // Redirect to the details page after saving or updating
-                Response.Redirect("~/member-details", false);
+                Response.Redirect("~/member", false);
             }
             catch (Exception ex)
             {

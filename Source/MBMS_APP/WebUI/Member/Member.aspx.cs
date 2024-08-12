@@ -89,17 +89,35 @@ namespace MBMS_APP.WebUI.Member
 
         protected void btnDelete_Click(object sender, EventArgs e)
         {
+            string confirmValue = Request.Form["confirm_value"];
+            if (confirmValue == "Yes")
+            {
+                try
+                {
+                    string arg = ((LinkButton)sender).CommandArgument;
+                    int userId = ConversionHelper.ToInt32(arg);
+                    int result = userService.DeleteUserDetails(userId);
+                    if (result > 0)
+                    {
+                        BindMembers();
+                        this.Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Member deleted successfully!');", true);
+                    }
+                    else
+                    {
+                        this.Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Something went wrong while deleting a member!');", true);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    new ErrorLog().WriteLog(ex);
+                }
 
+            }
         }
 
-        protected void btnDelete_Click1(object sender, EventArgs e)
+        protected void btnNewMember_Click(object sender, EventArgs e)
         {
-
-        }
-
-        protected void btnEdit_Click1(object sender, EventArgs e)
-        {
-
+            Response.Redirect("~/add-member");
         }
     }
 }

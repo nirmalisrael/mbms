@@ -41,7 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Helper\CommonHelper.cs" />
+    <Compile Include="Helper\CommonMethods.cs" />
     <Compile Include="Helper\ConversionHelper.cs" />
     <Compile Include="Helper\ErrorLog.cs" />
     <Compile Include="Helper\QueryHelper.cs" />
