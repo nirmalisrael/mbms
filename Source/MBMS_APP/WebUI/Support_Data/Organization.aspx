@@ -58,7 +58,7 @@
                     </div>
                     <div class="modal-footer">
                         <asp:Button ID="btnSaveChanges" runat="server" CssClass="btn btn-primary" Text="Save" OnClick="btnSaveChanges_Click" />
-                        <asp:Button ID="btnbutton" runat="server" class="btn btn-secondary" OnClick="btnbutton_Click" data-bs-dismiss="modal"></asp:Button>
+                        <asp:Button ID="btnbutton" runat="server" class="btn btn-secondary" Text="Close" OnClick="btnbutton_Click" data-bs-dismiss="modal"></asp:Button>
                     </div>
                     <asp:HiddenField ID="hfOrganization_Id" runat="server" />
                 </div>
