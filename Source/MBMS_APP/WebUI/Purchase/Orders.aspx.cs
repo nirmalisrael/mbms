@@ -62,6 +62,30 @@ namespace MBMS_APP.WebUI.Purchsase
                     return "badge bg-label-secondary text-dark me-1";
             }
         }
+
+        public void ShowToastMessage()
+        {
+            if (Session["ToastMessage"] != null)
+            {
+                string toastMessage = Session["ToastMessage"].ToString();
+                string toastType = Session["ToastType"].ToString();
+                string iconClass = Session["ToastIconClass"]?.ToString() ?? "bx bx-bell me-2";
+                string title = Session["ToastTitle"]?.ToString() ?? "Notification";
+
+                string script = $@"
+                <script type='text/javascript'>
+                    showToast('{toastMessage}', '{toastType}', '{iconClass}', '{title}');
+                </script>";
+
+                ClientScript.RegisterStartupScript(this.GetType(), "ShowToast", script);
+
+                // Clear the session variables after use
+                Session["ToastMessage"] = null;
+                Session["ToastType"] = null;
+                Session["ToastIconClass"] = null;
+                Session["ToastTitle"] = null;
+            }
+        }
         #endregion Methods
 
         #region Events
@@ -71,6 +95,7 @@ namespace MBMS_APP.WebUI.Purchsase
             {
                 BindOrdersGrid();
             }
+            ShowToastMessage();
         }
 
         protected void ddlPageSize_SelectedIndexChanged(object sender, EventArgs e)
@@ -119,6 +144,5 @@ namespace MBMS_APP.WebUI.Purchsase
         }
 
         #endregion Events
-
     }
 }

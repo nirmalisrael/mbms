@@ -6228,7 +6228,7 @@ a.invert-bg-dark:hover, a.invert-bg-dark:focus {
   letter-spacing: 1px;
 }
 .table:not(.table-dark) th {
-  color: #ffff;
+  color: black;
 }
 
 .table-border-bottom-0 tr:last-child td,
@@ -8713,7 +8713,7 @@ button.list-group-item-gray.active {
   right: 2.5rem;
 }
 
-.toast-placement-ex {
+.toast-message {
   position: fixed;
 }
 
