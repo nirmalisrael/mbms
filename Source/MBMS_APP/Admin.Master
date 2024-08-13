@@ -2,7 +2,13 @@
 
 <!DOCTYPE html>
 
-<html>
+<html
+lang="en"
+class="light-style layout-menu-fixed"
+dir="ltr"
+data-theme="theme-default"
+data-assets-path="../assets/"
+data-template="vertical-menu-template-free">
 <head runat="server">
     <meta charset="utf-8" />
     <meta
@@ -23,7 +29,14 @@
         <link href="<%= ResolveUrl("~/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css") %>" rel="stylesheet" />
         <link href="<%= ResolveUrl("~/assets/vendor/libs/apex-charts/apex-charts.css") %>" rel="stylesheet" />
         <link rel="icon" type="image/x-icon" href="<%= ResolveUrl("~/assets/img/favicon/favicon.ico") %>" />
-        <link href='<%= ResolveUrl("assets/vendor/fontawesome/css/all.css") %>' rel="stylesheet" />
+        <link href='<%= ResolveUrl("~/assets/vendor/fontawesome/css/all.css") %>' rel="stylesheet" />
+        <link href="<%= ResolveUrl("~/assets/css/custom.css") %>" rel="stylesheet" />
+
+        <script src="<%= ResolveUrl("~/assets/vendor/js/helpers.js") %>"></script>
+        <script src="<%= ResolveUrl("~/assets/js/config.js") %>"></script>
+        <script src="<%= ResolveUrl("~/assets/vendor/libs/jquery/jquery.js") %>"></script>
+        <script src="<%= ResolveUrl("~/assets/vendor/libs/popper/popper.js") %>"></script>
+        <script src="<%= ResolveUrl("~/assets/vendor/js/bootstrap.js") %>"></script>
     </asp:ContentPlaceHolder>
 </head>
 <body>
@@ -189,7 +202,7 @@
                                     </a>
                                 </li>
                                 <li class="menu-item">
-                                    <a href="/purchase-details/new-request" class="menu-link">
+                                    <a href="/purchase-orders/new-request" class="menu-link">
                                         <i class="px-1 fa-solid fa-cart-plus"></i>
                                         <div data-i18n="New Request">New Request</div>
                                     </a>
@@ -405,6 +418,8 @@
                     <div class="content-wrapper">
                         <asp:ContentPlaceHolder ID="AdminMasterPage" runat="server">
                         </asp:ContentPlaceHolder>
+                        <asp:ContentPlaceHolder ID="Scripts" runat="server"></asp:ContentPlaceHolder>
+
                         <footer class="content-footer footer bg-footer-theme">
                             <div class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
                                 <div class="mb-2 mb-md-0">
@@ -413,11 +428,10 @@
                                   document.write(new Date().getFullYear());
                               </script>
                                     , made with ❤️ by
-                              <a href="https://themeselection.com" target="_blank" class="footer-link fw-bolder">ThemeSelection</a>
+                              <a href="https://boscosofttech.com" target="_blank" class="footer-link fw-bolder">Boscosoft Technologies</a>
                                 </div>
                                 <div>
                                     <a href="https://themeselection.com/license/" class="footer-link me-4" target="_blank">License</a>
-                                    <a href="https://themeselection.com/" target="_blank" class="footer-link me-4">More Themes</a>
 
                                     <a
                                         href="https://themeselection.com/demo/sneat-bootstrap-html-admin-template/documentation/"
@@ -438,22 +452,18 @@
             </div>
         </div>
     </form>
-    <script src="<%= ResolveUrl("~/assets/vendor/js/helpers.js") %>"></script>
-    <script src="<%= ResolveUrl("~/assets/js/config.js") %>"></script>
-    <script src="<%= ResolveUrl("~/assets/vendor/libs/jquery/jquery.js") %>"></script>
-    <script src="<%= ResolveUrl("~/assets/vendor/libs/popper/popper.js") %>"></script>
-    <script src="<%= ResolveUrl("~/assets/vendor/js/bootstrap.js") %>"></script>
+
     <script src="<%= ResolveUrl("~/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js") %>"></script>
     <script src="<%= ResolveUrl("~/assets/vendor/js/menu.js") %>"></script>
     <script src="<%= ResolveUrl("~/assets/vendor/libs/apex-charts/apexcharts.js") %>"></script>
     <script src="<%= ResolveUrl("~/assets/js/main.js") %>" defer></script>
     <script src="<%= ResolveUrl("~/assets/js/dashboards-analytics.js") %>"></script>
+
     <script src="<%= ResolveUrl("~/WebUI/Admin/js/DeleteAdminConfirmation.js") %>"></script>
     <script src="<%= ResolveUrl("~/assets/js/ui-modals.js") %>"></script>
     <script src="<%= ResolveUrl("~/WebUI/Admin/js/DeleteAdminConfirmation.js") %>"</script>
     <script async defer src="https://buttons.github.io/buttons.js"></script>
-
     <script src="<%= ResolveUrl("~/assets/js/custom.js") %>"></script>
-    <link href="assets/css/custom.css" rel="stylesheet" />
+
 </body>
 </html>

@@ -23,7 +23,7 @@
                 </h5>
                 <div class="table-responsive text-nowrap">
                     <asp:GridView ID="gvMembers" runat="server" CssClass="table" ClientIDMode="Static" AutoGenerateColumns="false"
-                        AllowPaging="true" PageSize="10" HeaderStyle-CssClass="thead table-header thead-bg-color"
+                        AllowPaging="true" PageSize="10" HeaderStyle-CssClass="thead"
                         OnPageIndexChanging="gvMembers_PageIndexChanging">
                         <Columns>
                             <asp:BoundField DataField="UserId" HeaderText="User Id" Visible="false" />
@@ -59,7 +59,7 @@
                         <PagerStyle CssClass="table-alt-row table-border-bottom-0" />
                         <PagerTemplate>
                             <nav aria-label="Page navigation">
-                                <ul class="pagination" style="justify-content: end;">
+                                <ul class="pagination" >
                                     <li class="page-item">
                                         <asp:LinkButton runat="server" CommandName="Page" CommandArgument="Prev" CssClass="page-link" Text="<i class='bx bx-chevron-left'></i>" />
                                     </li>

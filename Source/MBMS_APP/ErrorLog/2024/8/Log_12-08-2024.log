@@ -7,3 +7,14 @@ StackTrace :   at System.Web.UI.WebControls.ListControl.PerformDataBinding(IEnum
    at System.Web.UI.WebControls.ListControl.PerformSelect()
    at MBMS_APP.WebUI.Member.Add_Member.LoadRolesAndOrganizations() in C:\Users\BSOFT-08-D-1A\source\repos\mbms\Source\MBMS_APP\WebUI\Member\AddMember.aspx.cs:line 56
 -----------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------
+Date/Time  :12-08-2024 - 16:13:09
+Source/MSG :.Net SqlClient Data Provider / Phone number must contain numeric digits only.
+StackTrace :   at MBMS_APP.DataAccess.SQLServerHandler.ExecuteNonQuery(String sQuery, SqlParameter[] objSqlPar, CommandType commandType) in D:\Projects\WebForms\MBMS Source\Source\MBMS_APP.DataAccess\SQLServerHandler.cs:line 38
+   at MBMS_APP.Business.Users.UserService.SaveOrUpdateUserDetails(User user) in D:\Projects\WebForms\MBMS Source\Source\MBMS_APP.Business\Users\UserService.cs:line 40
+-----------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------
+Date/Time  :12-08-2024 - 19:56:31
+Source/MSG :MBMS_APP / Object reference not set to an instance of an object.
+StackTrace :   at MBMS_APP.WebUI.Purchase.PurchaseRequest.BindItemsAndMeasurementDDL()
+-----------------------------------------------------------------------------------------

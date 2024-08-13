@@ -8,6 +8,6 @@
         public int StatusId { get; set; }
         public string StatusName { get; set; }
         public double Amount { get; set; }
-        public short IsDirectExpense { get; set; }
+        public short IsDirectExpense { get; set; } = 1;
     }
 }
