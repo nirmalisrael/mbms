@@ -50,13 +50,8 @@
                             <asp:TemplateField HeaderText="Actions">
                                 <ItemTemplate>
                                     <div class="dropdown">
-                                        <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-                                            <i class="bx bx-dots-vertical-rounded"></i>
-                                        </button>
-                                        <div class="dropdown-menu">
-                                            <asp:LinkButton ID="btnEdit" class="dropdown-item" runat="server" CommandArgument='<%# Eval("UserId") %>' OnClick="btnEdit_Click"><i class="bx bx-edit-alt me-1"></i> Edit</asp:LinkButton>
-                                            <asp:LinkButton ID="btnDelete" class="dropdown-item" runat="server" CommandArgument='<%# Eval("UserId") %>' OnClick="btnDelete_Click" OnClientClick="Confirm()"><i class="bx bx-trash me-1"></i> Delete</asp:LinkButton>
-                                        </div>
+                                        <asp:LinkButton ID="btnEdit" class="dropdown-item" runat="server" CommandArgument='<%# Eval("UserId") %>' OnClick="btnEdit_Click"><i class="bx bx-edit-alt me-1"></i></asp:LinkButton>
+                                        <asp:LinkButton ID="btnDelete" class="dropdown-item" runat="server" CommandArgument='<%# Eval("UserId") %>' OnClick="btnDelete_Click" OnClientClick="Confirm()"><i class="bx bx-trash me-1"></i></asp:LinkButton>
                                     </div>
                                 </ItemTemplate>
                             </asp:TemplateField>
@@ -80,7 +75,6 @@
                     </asp:GridView>
                 </div>
             </div>
-            <!--/ Basic Bootstrap Table -->
         </div>
     </main>
 </asp:Content>
