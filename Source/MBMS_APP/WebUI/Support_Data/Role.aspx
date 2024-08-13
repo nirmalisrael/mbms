@@ -12,7 +12,7 @@
                 </h5>
                 <div class="table-responsive text-nowrap">
                     <asp:GridView ID="gvRole" runat="server" CssClass="table" ClientIDMode="Static" AutoGenerateColumns="false"
-                        AllowPaging="true" PageSize="10" HeaderStyle-CssClass="thead table-header thead-bg-color"
+                        AllowPaging="true" PageSize="10" HeaderStyle-CssClass="thead table-header"
                         RowStyle-CssClass="table-row" AlternatingRowStyle-CssClass="table-row-alt">
                         <Columns>
                             <asp:BoundField DataField="RoleId" Visible="false" />
