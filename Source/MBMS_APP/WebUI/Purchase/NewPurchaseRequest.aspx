@@ -72,14 +72,6 @@
                                         </asp:TemplateField>
                                     </Columns>
                                 </asp:GridView>
-                                <asp:RequiredFieldValidator
-                                    ID="rfvGrid"
-                                    runat="server"
-                                    ControlToValidate="gvRequestedItems"
-                                    InitialValue=""
-                                    ErrorMessage="Items are required"
-                                    CssClass="text-danger"
-                                    Display="Dynamic" />
                             </div>
 
                             <div class="d-flex justify-content-end">

@@ -141,15 +141,6 @@ namespace MBMS_APP.WebUI.Purchase
         protected global::System.Web.UI.WebControls.GridView gvRequestedItems;
 
         /// <summary>
-        /// rfvGrid control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvGrid;
-
-        /// <summary>
         /// btnDraft control.
         /// </summary>
         /// <remarks>
