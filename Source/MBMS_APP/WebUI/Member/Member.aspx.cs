@@ -73,14 +73,13 @@ namespace MBMS_APP.WebUI.Member
                 }
             }
         }
-        #endregion
-
         protected void ddlPageSize_SelectedIndexChanged(object sender, EventArgs e)
         {
             gvMembers.PageSize = ConversionHelper.ToInt32(ddlPageSize.SelectedValue);
             BindMembers();
         }
-
+        #endregion
+        #region Edit and Delete
         protected void btnEdit_Click(object sender, EventArgs e)
         {
             string userId = ((LinkButton)sender).CommandArgument;
@@ -111,10 +110,10 @@ namespace MBMS_APP.WebUI.Member
                 {
                     new ErrorLog().WriteLog(ex);
                 }
-
             }
         }
-
+        #endregion
+        
         protected void btnNewMember_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/add-member");

@@ -21,6 +21,10 @@ namespace MBMS_APP
             routes.MapPageRoute("View Staff", "view-staff", "~/WebUI/Staff/ViewStaff.aspx");
             routes.MapPageRoute("Member", "member", "~/WebUI/Member/Member.aspx");
             routes.MapPageRoute("Add Member", "add-member", "~/WebUI/Member/AddMember.aspx");
+
+            // Support data
+            routes.MapPageRoute("Role", "role", "~/WebUI/Support_Data/Role.aspx");
+            routes.MapPageRoute("Organization", "organization", "~/WebUI/Support_Data/Organization.aspx");
         }
     }
 }
