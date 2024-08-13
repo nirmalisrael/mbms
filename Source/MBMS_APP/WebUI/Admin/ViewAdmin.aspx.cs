@@ -4,7 +4,6 @@ using System;
 using System.Data;
 using System.Web.UI.WebControls;
 
-
 namespace MBMS_APP.WebUI.Admin
 {
     public partial class ViewAdmin : System.Web.UI.Page
@@ -13,11 +12,14 @@ namespace MBMS_APP.WebUI.Admin
 
         public int RoleId { get; set; } = 0;
 
+        #region Page Load
         protected void Page_Load(object sender, EventArgs e)
         {
             BindData();
         }
+        #endregion
 
+        #region Bind Data
         public void BindData()
         {
             int roleId = 1;
@@ -33,12 +35,17 @@ namespace MBMS_APP.WebUI.Admin
                 new ErrorLog().WriteLog(ex);
             }
         }
+        #endregion
 
+        #region Page Size Change
         protected void ddlPageSize_SelectedIndexChanged(object sender, EventArgs e)
         {
             gvUsers.PageSize = ConversionHelper.ToInt32(ddlPageSize.SelectedValue);
             BindData();
         }
+        #endregion
+
+        #region Page Index Changing
         protected void gvUsers_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             if (e.NewPageIndex > 0)
@@ -56,7 +63,9 @@ namespace MBMS_APP.WebUI.Admin
                 }
             }
         }
+        #endregion
 
+        #region Delete User
         protected void btnDelete_Click(object sender, EventArgs e)
         {
             string confirmValue = Request.Form["confirm_value"];
@@ -75,12 +84,20 @@ namespace MBMS_APP.WebUI.Admin
                 {
                     new ErrorLog().WriteLog(ex);
                 }
-
             }
-            else 
+            else
             {
                 BindData();
             }
         }
+        #endregion
+
+        #region Edit User
+        protected void btnEdit_Click(object sender, EventArgs e)
+        {
+            string userId = ((LinkButton)sender).CommandArgument;
+            Response.Redirect("~/add-admin?UserId=" + userId);
+        }
+        #endregion
     }
 }

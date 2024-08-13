@@ -24,7 +24,7 @@
         <link href="<%= ResolveUrl("~/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css") %>" rel="stylesheet" />
         <link href="<%= ResolveUrl("~/assets/vendor/libs/apex-charts/apex-charts.css") %>" rel="stylesheet" />
         <link rel="icon" type="image/x-icon" href="<%= ResolveUrl("~/assets/img/favicon/favicon.ico") %>" />
-        <link href=<%= ResolveUrl("assets/vendor/fontawesome/css/all.css") %> rel="stylesheet" />
+        <link href=<%= ResolveUrl("~/assets/vendor/fontawesome/css/all.css") %> rel="stylesheet" />
     </asp:ContentPlaceHolder>
 </head>
 <body>
@@ -404,6 +404,7 @@
     <script src="<%= ResolveUrl("~/assets/js/main.js") %>" defer></script>
     <script src="<%= ResolveUrl("~/assets/js/dashboards-analytics.js") %>"></script>
     <script src="<%= ResolveUrl("~/WebUI/Admin/js/DeleteAdminConfirmation.js") %>"></script>
+    <script src="<%= ResolveUrl("~/WebUI/Staff/js/TriggerToast.js") %>"></script>
     <script async defer src="https://buttons.github.io/buttons.js"></script>
 
     <script src="<%= ResolveUrl("~/assets/js/custom.js") %>"></script>

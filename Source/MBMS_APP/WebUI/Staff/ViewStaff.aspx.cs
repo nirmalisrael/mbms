@@ -84,5 +84,15 @@ namespace MBMS_APP.WebUI.Staff
                 BindData();
             }
         }
+
+        protected void btnEdit_Click(object sender, EventArgs e)
+        {
+            string userId = ((LinkButton)sender).CommandArgument;
+            Response.Redirect("~/add-staff?UserId=" + userId);
+        }
+
+
+
+
     }
 }

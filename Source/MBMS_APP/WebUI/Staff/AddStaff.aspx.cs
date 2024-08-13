@@ -3,6 +3,7 @@ using MBMS_APP.Business.Users;
 using MBMS_APP.Framework.Helper;
 using System;
 using System.Data;
+using System.Web.UI;
 
 namespace MBMS_APP.WebUI.Staff
 {
@@ -49,7 +50,7 @@ namespace MBMS_APP.WebUI.Staff
                 ddlRole.DataTextField = "RoleName";
                 ddlRole.DataValueField = "RoleId";
                 ddlRole.DataBind();
-                ddlRole.SelectedIndex = 0;
+                ddlRole.SelectedIndex = 1;
 
                 ddlOrganization.DataSource = organizationTable;
                 ddlOrganization.DataTextField = "OrganizationName";
@@ -91,7 +92,7 @@ namespace MBMS_APP.WebUI.Staff
                         txtEmail.Text = row["UserName"].ToString();
                         txtPhoneNumber.Text = row["PhoneNumber"].ToString();
                         txtAadharNumber.Text = row["AadharNumber"].ToString();
-                        chkIsStaffmember.Checked = Convert.ToBoolean(row["chkIsStaffmember"]);
+                        chkIsStaffmember.Checked = Convert.ToBoolean(row["IsStaffmember"]);
                         txtAddress.Text = row["Address"].ToString();
 
                         bool gender = Convert.ToBoolean(row["Gender"]);
@@ -108,6 +109,8 @@ namespace MBMS_APP.WebUI.Staff
             }
         }
         #endregion
+
+        #region Save Staff
         protected void btnSave_Click(object sender, EventArgs e)
         {
             try
@@ -132,9 +135,13 @@ namespace MBMS_APP.WebUI.Staff
                     Email = txtEmail.Text,
                 };
 
+                // Save or update user details
                 userService.SaveOrUpdateUserDetails(user);
 
-                // Redirect to the details page after saving or updating
+                // Show the success toast with tick animation
+                
+
+                // Redirect to the view staff page
                 Response.Redirect("~/view-staff", false);
             }
             catch (Exception ex)
@@ -142,13 +149,13 @@ namespace MBMS_APP.WebUI.Staff
                 new ErrorLog().WriteLog(ex);
             }
         }
-        #region Save Staff
         #endregion
-
-
+        #region Cancelbutton 
         protected void btnCancel_Click(object sender, EventArgs e)
         {
             Response.Redirect("/view-staff");
         }
     }
+        #endregion
 }
+  

@@ -30,7 +30,6 @@
                                     </asp:Label>
                                 </ItemTemplate>
                             </asp:TemplateField>
-
                             <asp:BoundField DataField="DateOfBirth" HeaderText="Date of Birth" DataFormatString="{0:dd/MM/yyyy}" />
                             <asp:BoundField DataField="Username" HeaderText="Username" />
                             <asp:BoundField DataField="PhoneNumber" HeaderText="Phone Number" />
@@ -38,36 +37,24 @@
                             <asp:BoundField DataField="Address" HeaderText="Address" />
                             <asp:BoundField DataField="OrganizationName" HeaderText="Organization Name" />
                             <asp:BoundField DataField="RoleName" HeaderText="Role Name" />
-
                             <asp:TemplateField HeaderText="User Status">
                                 <ItemTemplate>
                                     <asp:Label ID="lblUserStatus" runat="server"
                                         Text='<%# Convert.ToBoolean(Eval("IsActive")) ?"Active" : "Inactive" %>'></asp:Label>
                                 </ItemTemplate>
                             </asp:TemplateField>
-
-                            <%--   <asp:TemplateField HeaderText="Toggle Status">
-                                <ItemTemplate>
-                                    <asp:Button ID="btnToggleStatus" runat="server" Text='<%# Convert.ToBoolean(Eval("IsActive")) ? "Deactivate" : "Activate" %>'
-                                                CommandName="ToggleStatus" CommandArgument='<%# Eval("UserID") %>' CssClass="btn btn-sm" '<%# Convert.ToBoolean(Eval("UserStatus")) ? "btn-danger" : "btn-success" %>' />
-                                </ItemTemplate>
-                            </asp:TemplateField>--%>
-
                             <asp:TemplateField HeaderText="Actions">
+                                <ItemStyle Width="150px" />
                                 <ItemTemplate>
-                                    <div class="dropdown">
-                                        <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-                                            <i class="bx bx-dots-vertical-rounded"></i>
-                                        </button>
-                                        <div class="dropdown-menu">
-                                            <asp:LinkButton ID="btnEdit" runat="server" CommandName="Edit" CssClass="dropdown-item">
-                                                <i class="bx bx-edit-alt me-2"></i> Edit
-                                            </asp:LinkButton>
-                                            <asp:LinkButton ID="btnDelete" runat="server" CommandName="Delete" CssClass="dropdown-item" CommandArgument='<%#Eval("UserId") %>'
-                                                OnClick="btnDelete_Click" OnClientClick="Confirm()">
-                                                <i class="bx bx-trash me-2"></i> Delete
-                                            </asp:LinkButton>
-                                        </div>
+                                    <div class="d-flex justify-content-evenly">
+                                        <asp:LinkButton ID="btnEdit" runat="server" CommandName="Edit" CommandArgument='<%#Eval("UserId") %>'
+                                            OnClick="btnEdit_Click">
+                                                <i class="bx bx-edit-alt me-1"></i>
+                                        </asp:LinkButton>
+                                        <asp:LinkButton ID="btnDelete" runat="server" CommandName="Delete" CommandArgument='<%#Eval("UserId") %>'
+                                            OnClick="btnDelete_Click" OnClientClick="Confirm()">
+                                                 <i class="bx bx-trash me-1"></i>
+                                        </asp:LinkButton>
                                     </div>
                                 </ItemTemplate>
                             </asp:TemplateField>

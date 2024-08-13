@@ -2,12 +2,7 @@
 using MBMS_APP.Business.Users;
 using MBMS_APP.Framework.Helper;
 using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace MBMS_APP.WebUI.Admin
 {
@@ -30,9 +25,7 @@ namespace MBMS_APP.WebUI.Admin
                         LoadMemberDetails(userId);
                     }
                     LoadRolesAndOrganizations();
-
                 }
-
             }
             catch (Exception ex)
             {
@@ -54,7 +47,6 @@ namespace MBMS_APP.WebUI.Admin
                 ddlRole.DataTextField = "RoleName";
                 ddlRole.DataValueField = "RoleId";
                 ddlRole.DataBind();
-                ddlRole.SelectedIndex = 0;
 
                 ddlOrganization.DataSource = organizationTable;
                 ddlOrganization.DataTextField = "OrganizationName";
@@ -66,6 +58,7 @@ namespace MBMS_APP.WebUI.Admin
                 new ErrorLog().WriteLog(ex);
             }
         }
+
         private void LoadMemberDetails(int userId)
         {
             try
@@ -91,12 +84,12 @@ namespace MBMS_APP.WebUI.Admin
 
                         ddlRole.SelectedValue = row["RoleId"].ToString();
                         ddlOrganization.SelectedValue = row["OrganizationId"].ToString();
-                        txtPassword.Text = row["Password"].ToString();
+                        txtPassword.Text = dataTable.Rows[0]["Password"].ToString();
                         chkHostel.Checked = Convert.ToBoolean(row["IsHostel"]);
                         txtEmail.Text = row["UserName"].ToString();
                         txtPhoneNumber.Text = row["PhoneNumber"].ToString();
                         txtAadharNumber.Text = row["AadharNumber"].ToString();
-                        chkIsStaffmember.Checked = Convert.ToBoolean(row["chkIsStaffmember"]);
+                        chkIsStaffmember.Checked = Convert.ToBoolean(row["IsStaffmember"]);
                         txtAddress.Text = row["Address"].ToString();
 
                         bool gender = Convert.ToBoolean(row["Gender"]);
@@ -113,6 +106,8 @@ namespace MBMS_APP.WebUI.Admin
             }
         }
         #endregion
+
+        #region Save Admin
         protected void btnSave_Click(object sender, EventArgs e)
         {
             try
@@ -147,13 +142,13 @@ namespace MBMS_APP.WebUI.Admin
                 new ErrorLog().WriteLog(ex);
             }
         }
-        #region Save Admin
         #endregion
 
-
+        #region Cancel Action
         protected void btnCancel_Click(object sender, EventArgs e)
         {
-            Response.Redirect("/view-admin");
+            Response.Redirect("~/view-admin");
         }
+        #endregion
     }
- }
+}
