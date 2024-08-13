@@ -85,25 +85,26 @@
             </div>
         </div>
     </main>
-    <script type="text/javascript">
-        function onChangeItem() {
-            var selectedValue = $('#ddlItems').val();
-
-            $.ajax({
-                type: "POST",
-                url: "<%= ResolveUrl("~/WebUI/Purchase/PurchaseRequest.aspx/GetMeasurementByItem") %>",
-                data: JSON.stringify({ selectedValue: selectedValue }),
-                contentType: "application/json; charset=utf-8",
-                dataType: "json",
-                success: function (response) {
-                    console.log("Response: ", response.d);
-                },
-                error: function (xhr, status, error) {
-                    console.error("Error: " + error);
-                }
+    <%--<script type="text/javascript">
+        $(document).ready(function () {
+            $('#ddlItems').change(function () {
+                var selectedValue = $(this).val();
+                $.ajax({
+                    type: "POST",
+                    url: "<%= ResolveUrl("~/WebUI/Purchase/NewPurchaseRequest.aspx/GetMeasurementByItem") %>",
+                    data: JSON.stringify({ selectedValue: selectedValue }),
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (response) {
+                        console.log("Response: ", response.d);
+                    },
+                    error: function (xhr, status, error) {
+                        console.error("Error: " + error);
+                    }
+                });
             });
-        }
-    </script>
+        });
+    </script>--%>
 
 </asp:Content>
 

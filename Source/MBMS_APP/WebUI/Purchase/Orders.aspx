@@ -20,7 +20,7 @@
                 </h5>
 
                 <div class="table-responsive text-nowrap">
-                    <asp:GridView runat="server" ID="gvPurchaseOrders" ClientIDMode="Static" AutoGenerateColumns="false" CssClass="table table-responsive text-center"
+                    <asp:GridView runat="server" ID="gvPurchaseOrders" ClientIDMode="Static" AutoGenerateColumns="false" CssClass="table datatable table-responsive text-center"
                         OnRowDataBound="gvPurchaseOrders_RowDataBound"
                         HeaderStyle-CssClass="thead"
                         AllowPaging="True" PageSize="10"
@@ -46,7 +46,7 @@
                             <asp:TemplateField HeaderText="Actions">
                                 <ItemTemplate>
                                     <div class="dropdown">
-                                        <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                                        <button type="button" class="btn p-0 hide-arrow" data-bs-toggle="modal" data-bs-target="#viewRequestItems">
                                             <%--<i class="bx bx-dots-vertical-rounded"></i>--%>
                                             <i class="fa-regular fa-eye me-1"></i>
                                         </button>
@@ -79,18 +79,41 @@
 
                 </div>
             </div>
-            <!--/ Basic Bootstrap Table -->
         </div>
-<%--        <div class="toast-container toast-placement-ex m-2">
-            <div class="toast-message bs-toast toast" role="alert" aria-live="assertive" aria-atomic="true" data-delay="2000">
-                <div class="toast-header">
-                    <i class="bx bx-bell me-2"></i>
-                    <div class="me-auto fw-semibold">Notification</div>
-                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        <div class="modal fade" id="viewRequestItems" tabindex="-1" style="display: none;" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalScrollableTitle">Modal title</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col mb-3">
+                                <asp:Label CssClass="form-label" runat="server" ID="lblRequestName" AssociatedControlID="txtRequestName">Request Name</asp:Label>
+                                <asp:TextBox runat="server" ID="txtRequestName" CssClass="form-control" placeholder="June month request..   " />
+                            </div>
+                        </div>
+                        <div class="row g-2">
+                            <div class="col mb-0">
+                                <label for="emailLarge" class="form-label">Email</label>
+                                <input type="text" id="emailLarge" class="form-control" placeholder="xxxx@xxx.xx">
+                            </div>
+                            <div class="col mb-0">
+                                <label for="dobLarge" class="form-label">DOB</label>
+                                <input type="text" id="dobLarge" class="form-control" placeholder="DD / MM / YY">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                            Close
+                        </button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
                 </div>
-                <div class="toast-body">This is a toast message.</div>
             </div>
-        </div>--%>
+        </div>
         <div class="bs-toast toast toast-message m-4 fade top-0 end-0 hide" role="alert" aria-live="assertive" aria-atomic="true" data-delay="2000">
             <div class="toast-header">
                 <i class="bx bx-bell me-2"></i>

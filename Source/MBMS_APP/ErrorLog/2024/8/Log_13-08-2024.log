@@ -15,3 +15,30 @@ StackTrace :   at System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnect
    at System.Data.SqlClient.SqlConnection.Open()
    at MBMS_APP.DataAccess.SQLServerHandler.ExecuteTable(String sQuery, SqlParameter[] objSqlPar, CommandType commandType) in D:\Projects\WebForms\MBMS Source\Source\MBMS_APP.DataAccess\SQLServerHandler.cs:line 74
 -----------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------
+Date/Time  :13-08-2024 - 15:30:27
+Source/MSG :mscorlib / Thread was being aborted.
+StackTrace :   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at MBMS_APP.WebUI.Purchase.NewPurchaseRequest.btnSend_Click(Object sender, EventArgs e) in D:\Projects\WebForms\MBMS Source\Source\MBMS_APP\WebUI\Purchase\NewPurchaseRequest.aspx.cs:line 234
+-----------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------
+Date/Time  :13-08-2024 - 15:33:53
+Source/MSG :mscorlib / Thread was being aborted.
+StackTrace :   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at MBMS_APP.WebUI.Purchase.NewPurchaseRequest.btnSend_Click(Object sender, EventArgs e) in D:\Projects\WebForms\MBMS Source\Source\MBMS_APP\WebUI\Purchase\NewPurchaseRequest.aspx.cs:line 234
+-----------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------
+Date/Time  :13-08-2024 - 15:37:45
+Source/MSG :mscorlib / Thread was being aborted.
+StackTrace :   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at MBMS_APP.WebUI.Purchase.NewPurchaseRequest.btnSend_Click(Object sender, EventArgs e) in D:\Projects\WebForms\MBMS Source\Source\MBMS_APP\WebUI\Purchase\NewPurchaseRequest.aspx.cs:line 234
+-----------------------------------------------------------------------------------------
