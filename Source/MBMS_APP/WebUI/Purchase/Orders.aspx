@@ -15,14 +15,19 @@
                 </div>
             </div>
             <div class="card">
+                <h5 class="card-header d-flex justify-space-between align-items-center">Orders                   
+                    <a class="btn btn-primary ms-auto" href="/purchase-orders/new-request">New Request</a>
+                </h5>
+
                 <div class="table-responsive text-nowrap">
                     <asp:GridView runat="server" ID="gvPurchaseOrders" ClientIDMode="Static" AutoGenerateColumns="false" CssClass="table table-responsive text-center"
                         OnRowDataBound="gvPurchaseOrders_RowDataBound"
-                        HeaderStyle-CssClass="thead table-header thead-bg-color"
+                        HeaderStyle-CssClass="thead"
                         AllowPaging="True" PageSize="10"
                         OnPageIndexChanging="gvPurchaseOrders_PageIndexChanging">
                         <Columns>
                             <asp:BoundField DataField="RequestId" HeaderText="ID" Visible="false" />
+                            <asp:BoundField DataField="SerialNumber" HeaderText="S. No" />
                             <asp:BoundField DataField="RequestName" HeaderText="Request Name" />
                             <asp:BoundField DataField="NoOfItems" HeaderText="No Of Items" />
                             <asp:BoundField DataField="StatusId" Visible="false" />
@@ -42,11 +47,12 @@
                                 <ItemTemplate>
                                     <div class="dropdown">
                                         <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-                                            <i class="bx bx-dots-vertical-rounded"></i>
+                                            <%--<i class="bx bx-dots-vertical-rounded"></i>--%>
+                                            <i class="fa-regular fa-eye me-1"></i>
                                         </button>
                                         <div class="dropdown-menu">
                                             <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i>Edit</a>
-                                            <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-trash me-1"></i>Delete</a>
+                                            <a class="dropdown-item" href="javascript:void(0);"><i class="fa-regular fa-eye me-1"></i></i>View</a>
                                         </div>
                                     </div>
                                 </ItemTemplate>
@@ -56,7 +62,7 @@
                         <PagerStyle CssClass="table-alt-row table-border-bottom-0" />
                         <PagerTemplate>
                             <nav aria-label="Page navigation">
-                                <ul class="pagination" style="justify-content: end;">
+                                <ul class="pagination">
                                     <li class="page-item">
                                         <asp:LinkButton runat="server" CommandName="Page" CommandArgument="Prev" CssClass="page-link" Text="<i class='bx bx-chevron-left'></i>" />
                                     </li>
@@ -75,7 +81,37 @@
             </div>
             <!--/ Basic Bootstrap Table -->
         </div>
+<%--        <div class="toast-container toast-placement-ex m-2">
+            <div class="toast-message bs-toast toast" role="alert" aria-live="assertive" aria-atomic="true" data-delay="2000">
+                <div class="toast-header">
+                    <i class="bx bx-bell me-2"></i>
+                    <div class="me-auto fw-semibold">Notification</div>
+                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+                <div class="toast-body">This is a toast message.</div>
+            </div>
+        </div>--%>
+        <div class="bs-toast toast toast-message m-4 fade top-0 end-0 hide" role="alert" aria-live="assertive" aria-atomic="true" data-delay="2000">
+            <div class="toast-header">
+                <i class="bx bx-bell me-2"></i>
+                <div class="me-auto fw-semibold">Bootstrap</div>
+                <small>11 mins ago</small>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">Fruitcake chocolate bar tootsie roll gummies gummies jelly beans cake.</div>
+        </div>
     </main>
-
 </asp:Content>
 
+<asp:Content ID="Content2" ContentPlaceHolderID="Scripts" runat="server">
+    <script src="<%= ResolveUrl("~/assets/js/ui-toasts.js") %>"></script>
+    <script type="text/javascript">
+        function callShowToast(message, type, iconClass, title) {
+            if (window.showToast) {
+                window.showToast(message, type, iconClass, title);
+            } else {
+                console.error('showToast function is not defined');
+            }
+        }
+    </script>
+</asp:Content>

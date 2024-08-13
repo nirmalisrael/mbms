@@ -8,7 +8,7 @@ namespace MBMS_APP.Business.SupportData
 {
     public class OrganizationService
     {
-        SQLServerHandler sQLServerHandler=new SQLServerHandler();
+        SQLServerHandler sQLServerHandler = new SQLServerHandler();
         public DataTable GetOrganization(int organizationId = 0)
         {
             DataTable dataTable = new DataTable();
@@ -40,19 +40,23 @@ namespace MBMS_APP.Business.SupportData
                 new ErrorLog().WriteLog(ex);
             }
         }
-        public void DeleteOrganization(int organizationId)
+        public int DeleteOrganization(int organizationId)
         {
+            int result = 0;
             try
             {
-                SqlParameter[] param = { new SqlParameter("OrganizationId", organizationId),
-                new SqlParameter("ModifiedBy",1)};
-                sQLServerHandler.ExecuteNonQuery("[support].[sp_DeleteOrganization]", param);
+                SqlParameter[] param =
+                {
+                    new SqlParameter("OrganizationId", organizationId),
+                    new SqlParameter("ModifiedBy", 1)
+                };
+                result = sQLServerHandler.ExecuteNonQuery("[support].[sp_DeleteOrganization]", param);
             }
             catch (Exception ex)
             {
                 new ErrorLog().WriteLog(ex);
             }
-
+            return result;
         }
     }
 }

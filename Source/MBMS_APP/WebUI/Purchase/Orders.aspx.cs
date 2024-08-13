@@ -29,6 +29,7 @@ namespace MBMS_APP.WebUI.Purchsase
                 DataSet dataSet = purchaseService.GetPurchaseRequest(0, 0, 1);
                 DataTable ordersDT = new DataTable();
                 ordersDT = dataSet.Tables[0];
+                CommonMethods.AddSerialNumberColumnToDataTable(ordersDT);
                 if (ordersDT.Rows.Count > 0)
                 {
                     gvPurchaseOrders.DataSource = ordersDT;
@@ -40,6 +41,51 @@ namespace MBMS_APP.WebUI.Purchsase
                 new ErrorLog().WriteLog(ex);
             }
         }
+
+        protected string GetBadgeClass(string status)
+        {
+            switch (status)
+            {
+                case "Draft":
+                    return "badge bg-label-secondary text-dark me-1";
+                case "Requested":
+                    return "badge bg-label-primary text-dark me-1";
+                case "Approved":
+                    return "badge bg-label-success text-dark me-1";
+                case "Purchased":
+                    return "badge bg-label-info text-dark me-1";
+                case "Received":
+                    return "badge bg-label-warning text-dark me-1";
+                case "Rejected":
+                    return "badge bg-label-danger text-dark me-1";
+                default:
+                    return "badge bg-label-secondary text-dark me-1";
+            }
+        }
+
+        public void ShowToastMessage()
+        {
+            if (Session["ToastMessage"] != null)
+            {
+                string toastMessage = Session["ToastMessage"].ToString();
+                string toastType = Session["ToastType"].ToString();
+                string iconClass = Session["ToastIconClass"]?.ToString() ?? "bx bx-bell me-2";
+                string title = Session["ToastTitle"]?.ToString() ?? "Notification";
+
+                string script = $@"
+                <script type='text/javascript'>
+                    showToast('{toastMessage}', '{toastType}', '{iconClass}', '{title}');
+                </script>";
+
+                ClientScript.RegisterStartupScript(this.GetType(), "ShowToast", script);
+
+                // Clear the session variables after use
+                Session["ToastMessage"] = null;
+                Session["ToastType"] = null;
+                Session["ToastIconClass"] = null;
+                Session["ToastTitle"] = null;
+            }
+        }
         #endregion Methods
 
         #region Events
@@ -49,8 +95,8 @@ namespace MBMS_APP.WebUI.Purchsase
             {
                 BindOrdersGrid();
             }
+            ShowToastMessage();
         }
-        #endregion Events
 
         protected void ddlPageSize_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -79,44 +125,24 @@ namespace MBMS_APP.WebUI.Purchsase
         protected void gvPurchaseOrders_RowDataBound(object sender, GridViewRowEventArgs e)
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
-    {
-        string status = DataBinder.Eval(e.Row.DataItem, "Status").ToString();
-        
-        // Find the cell that contains the status (assuming it's the first cell)
-        TableCell statusCell = e.Row.Cells[0];
-        
-        // Clear existing controls
-        statusCell.Controls.Clear();
-        
-        // Create a new span element
-        var badge = new HtmlGenericControl("span");
-        badge.Attributes.Add("class", GetBadgeClass(status));
-        badge.InnerText = status;
-        
-        // Add the badge to the cell
-        statusCell.Controls.Add(badge);
-    }
-        }
-        protected string GetBadgeClass(string status)
-        {
-            switch (status)
             {
-                case "Draft":
-                    return "badge bg-label-secondary text-dark me-1";
-                case "Requested":
-                    return "badge bg-label-primary text-dark me-1";
-                case "Approved":
-                    return "badge bg-label-success text-dark me-1";
-                case "Purchased":
-                    return "badge bg-label-info text-dark me-1";
-                case "Received":
-                    return "badge bg-label-warning text-dark me-1";
-                case "Rejected":
-                    return "badge bg-label-danger text-dark me-1";
-                default:
-                    return "badge bg-label-secondary text-dark me-1";
+                string status = DataBinder.Eval(e.Row.DataItem, "Status").ToString();
+
+                if (status != null && status != "")
+                {
+                    TableCell statusCell = e.Row.Cells[0];
+
+                    statusCell.Controls.Clear();
+
+                    var badge = new HtmlGenericControl("span");
+                    badge.Attributes.Add("class", GetBadgeClass(status));
+                    badge.InnerText = status;
+
+                    statusCell.Controls.Add(badge);
+                }
             }
         }
 
+        #endregion Events
     }
 }

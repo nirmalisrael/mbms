@@ -109,6 +109,8 @@ namespace MBMS_APP.WebUI.Member
             }
         }
         #endregion
+
+        #region Save Member
         protected void btnSave_Click(object sender, EventArgs e)
         {
             try
@@ -140,7 +142,6 @@ namespace MBMS_APP.WebUI.Member
                 new ErrorLog().WriteLog(ex);
             }
         }
-        #region Save Member
         #endregion
 
 

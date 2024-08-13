@@ -41,18 +41,20 @@ namespace MBMS_APP.Business.SupportData
                 new ErrorLog().WriteLog(ex);
             }
         }
-        public void DeleteRole(int roleId)
+        public int DeleteRole(int roleId)
         {
+            int result = 0;
             try
             {
                 SqlParameter[] param = { new SqlParameter("RoleId", roleId),
                 new SqlParameter("ModifiedBy",1)};
-                sQLServerHandler.ExecuteNonQuery("[support].[sp_DeleteRole]", param);
+                result = sQLServerHandler.ExecuteNonQuery("[support].[sp_DeleteRole]", param);
             }
             catch (Exception ex)
             {
                 new ErrorLog().WriteLog(ex);
             }
+            return result;
         }
     }
 

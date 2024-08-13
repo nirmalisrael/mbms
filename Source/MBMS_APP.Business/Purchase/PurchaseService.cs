@@ -31,8 +31,9 @@ namespace MBMS_APP.Business.Purchase
             return dataSet;
         }
 
-        public void InsertAndUpdatePurchaseRequest(PurchaseRequest purchaseRequest, string ItemIdList = "", string RequestedQuantity = "", string amount = "")
+        public int InsertAndUpdatePurchaseRequest(PurchaseRequest purchaseRequest, string ItemIdList = "", string RequestedQuantity = "", string amount = "")
         {
+            int result = 0;
             try
             {
                 SqlParameter[] sqlParameters =
@@ -47,12 +48,13 @@ namespace MBMS_APP.Business.Purchase
                     new SqlParameter("@ItemIdList", ItemIdList),
                     new SqlParameter("@RequestedQuantityList", RequestedQuantity)
                 };
-                sqlServerHandler.ExecuteNonQuery("[mbms].[sp_InserAndUpdatePurchaseRequest]", sqlParameters);
+                result = sqlServerHandler.ExecuteNonQuery("[mbms].[sp_InserAndUpdatePurchaseRequest]", sqlParameters);
             }
             catch (Exception ex)
             {
                 new ErrorLog().WriteLog(ex);
             }
+            return result;
         }
 
         public void UpdatePurchaseRequest(int requestId, int statusId, string requestXrefIdList = "", 

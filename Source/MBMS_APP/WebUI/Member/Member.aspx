@@ -23,7 +23,7 @@
                 </h5>
                 <div class="table-responsive text-nowrap">
                     <asp:GridView ID="gvMembers" runat="server" CssClass="table" ClientIDMode="Static" AutoGenerateColumns="false"
-                        AllowPaging="true" PageSize="10" HeaderStyle-CssClass="thead table-header thead-bg-color"
+                        AllowPaging="true" PageSize="10" HeaderStyle-CssClass="thead"
                         OnPageIndexChanging="gvMembers_PageIndexChanging">
                         <Columns>
                             <asp:BoundField DataField="UserId" HeaderText="User Id" Visible="false" />
@@ -50,13 +50,8 @@
                             <asp:TemplateField HeaderText="Actions">
                                 <ItemTemplate>
                                     <div class="dropdown">
-                                        <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-                                            <i class="bx bx-dots-vertical-rounded"></i>
-                                        </button>
-                                        <div class="dropdown-menu">
-                                            <asp:LinkButton ID="btnEdit" class="dropdown-item" runat="server" CommandArgument='<%# Eval("UserId") %>' OnClick="btnEdit_Click"><i class="bx bx-edit-alt me-1"></i> Edit</asp:LinkButton>
-                                            <asp:LinkButton ID="btnDelete" class="dropdown-item" runat="server" CommandArgument='<%# Eval("UserId") %>' OnClick="btnDelete_Click" OnClientClick="Confirm()"><i class="bx bx-trash me-1"></i> Delete</asp:LinkButton>
-                                        </div>
+                                        <asp:LinkButton ID="btnEdit" class="dropdown-item" runat="server" CommandArgument='<%# Eval("UserId") %>' OnClick="btnEdit_Click"><i class="bx bx-edit-alt me-1"></i></asp:LinkButton>
+                                        <asp:LinkButton ID="btnDelete" class="dropdown-item" runat="server" CommandArgument='<%# Eval("UserId") %>' OnClick="btnDelete_Click" OnClientClick="Confirm()"><i class="bx bx-trash me-1"></i></asp:LinkButton>
                                     </div>
                                 </ItemTemplate>
                             </asp:TemplateField>
@@ -64,7 +59,7 @@
                         <PagerStyle CssClass="table-alt-row table-border-bottom-0" />
                         <PagerTemplate>
                             <nav aria-label="Page navigation">
-                                <ul class="pagination" style="justify-content: end;">
+                                <ul class="pagination" >
                                     <li class="page-item">
                                         <asp:LinkButton runat="server" CommandName="Page" CommandArgument="Prev" CssClass="page-link" Text="<i class='bx bx-chevron-left'></i>" />
                                     </li>
@@ -80,7 +75,6 @@
                     </asp:GridView>
                 </div>
             </div>
-            <!--/ Basic Bootstrap Table -->
         </div>
     </main>
 </asp:Content>

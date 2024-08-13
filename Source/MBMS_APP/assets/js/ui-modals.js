@@ -31,3 +31,9 @@
   // Calling function on load
   autoPlayYouTubeModal();
 })();
+document.addEventListener('DOMContentLoaded', function () {
+    // Function to show modal
+    window.showModal = function () {
+        $('#basicModal').modal('show');
+    };
+});
