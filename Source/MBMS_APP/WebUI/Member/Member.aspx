@@ -26,6 +26,7 @@
                         AllowPaging="true" PageSize="10" HeaderStyle-CssClass="thead"
                         OnPageIndexChanging="gvMembers_PageIndexChanging">
                         <Columns>
+                            <asp:BoundField DataField="SerialNumber" HeaderText="S.NO" />
                             <asp:BoundField DataField="UserId" HeaderText="User Id" Visible="false" />
                             <asp:BoundField DataField="FirstName" HeaderText="First Name" />
                             <asp:BoundField DataField="LastName" HeaderText="Last Name" />
@@ -50,8 +51,8 @@
                             <asp:TemplateField HeaderText="Actions">
                                 <ItemTemplate>
                                     <div class="dropdown">
-                                        <asp:LinkButton ID="btnEdit" class="dropdown-item" runat="server" CommandArgument='<%# Eval("UserId") %>' OnClick="btnEdit_Click"><i class="bx bx-edit-alt me-1"></i></asp:LinkButton>
-                                        <asp:LinkButton ID="btnDelete" class="dropdown-item" runat="server" CommandArgument='<%# Eval("UserId") %>' OnClick="btnDelete_Click" OnClientClick="Confirm()"><i class="bx bx-trash me-1"></i></asp:LinkButton>
+                                        <asp:LinkButton ID="btnEdit" runat="server" CommandArgument='<%# Eval("UserId") %>' OnClick="btnEdit_Click"><i class="bx bx-edit-alt me-1"></i></asp:LinkButton>
+                                        <asp:LinkButton ID="btnDelete" runat="server" CommandArgument='<%# Eval("UserId") %>' OnClick="btnDelete_Click" OnClientClick="Confirm()"><i class="bx bx-trash me-1"></i></asp:LinkButton>
                                     </div>
                                 </ItemTemplate>
                             </asp:TemplateField>

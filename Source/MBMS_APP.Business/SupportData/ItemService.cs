@@ -43,18 +43,20 @@ namespace MBMS_APP.Business.SupportData
                 new ErrorLog().WriteLog(ex);
             }
         }
-        public void DeleteItem(int itemId)
+        public int DeleteItem(int itemId)
         {
+            int result = 0;
             try
             {
                 SqlParameter[] param = { new SqlParameter("ItemId", itemId),
                 new SqlParameter("ModifiedBy",1)};
-                sQLServerHandler.ExecuteNonQuery("[support].[sp_DeleteItem]", param);
+                result = sQLServerHandler.ExecuteNonQuery("[support].[sp_DeleteItem]", param);
             }
             catch (Exception ex)
             {
                 new ErrorLog().WriteLog(ex);
             }
+            return result;
         }
 
         public DataTable GetGoodsAvailability()
@@ -87,6 +89,20 @@ namespace MBMS_APP.Business.SupportData
             {
                 new ErrorLog().WriteLog(ex);
             }
+        }
+        public DataTable GetMeasurement(int measurementId = 0)
+        {
+            DataTable dataTable = new DataTable();
+            try
+            {
+                SqlParameter[] param = { new SqlParameter("MeasurementId", measurementId) };
+                dataTable = sQLServerHandler.ExecuteTable("[support].[sp_GetMeasurement]", param);
+            }
+            catch (Exception ex)
+            {
+                new ErrorLog().WriteLog (ex);
+            }
+            return dataTable;
         }
     }
 }
