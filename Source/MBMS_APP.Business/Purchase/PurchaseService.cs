@@ -13,7 +13,7 @@ namespace MBMS_APP.Business.Purchase
 
         public DataSet GetPurchaseRequest(int requestId = 0, int statusId = 0, short isDirectExpense = 0)
         {
-            DataSet dataSet = new DataSet();
+            DataSet dataSet = null;
             try
             {
                 SqlParameter[] sqlParameters = {
