@@ -45,7 +45,7 @@
 
                             <asp:TemplateField HeaderText="Actions">
                                 <ItemTemplate>
-                                    <asp:LinkButton runat="server" ID="btnViewItems" type="button" CssClass="btn p-0 hide-arrow"  OnClick="btnViewItems_Click" 
+                                    <asp:LinkButton runat="server" ID="btnViewItems" type="button" CssClass="btn p-0 hide-arrow" OnClick="btnViewItems_Click"
                                         CommandArgument='<%# Eval("RequestId") %>'>
                                         <i class="fa-regular fa-eye me-1"></i>
                                     </asp:LinkButton>
@@ -104,7 +104,8 @@
                                 </div>
                             </div>
                         </div>
-                        <asp:GridView runat="server" ID="gvRequestedItems" CssClass="table text-center" AutoGenerateColumns="false">
+                        <asp:GridView runat="server" ID="gvRequestedItems" ClientIDMode="Static" CssClass="table text-center text-dark table-light table-striped small rounded" AutoGenerateColumns="false"
+                            HeaderStyle-CssClass="bg-secondary thead-text-white">
                             <Columns>
                                 <asp:BoundField DataField="SerialNumber" HeaderText="S. No" />
                                 <asp:BoundField DataField="RequestXrefId" Visible="false" />
@@ -112,10 +113,30 @@
                                 <asp:BoundField DataField="ItemId" Visible="false" />
                                 <asp:BoundField DataField="ItemName" HeaderText="Item Name" />
                                 <asp:BoundField DataField="RequestedQuantity" HeaderText="Requested Quantity" />
-                                <asp:BoundField DataField="ApprovedQuantity" HeaderText="Approvable Quantity" />
-                                <asp:BoundField DataField="AvailableQuantity" HeaderText="Available Quantity" />
+                                <asp:TemplateField HeaderText="Approvabe Quantity">
+                                    <ItemStyle Width="15%" />
+                                    <ItemTemplate>
+                                        <asp:TextBox ID="txtApprovableQuantity" runat="server" CssClass="form-control text-info" Text='<%# Eval("ApprovedQuantity") %>'></asp:TextBox>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:BoundField DataField="AvailableQuantity" ItemStyle-CssClass="text-success" HeaderText="Available Quantity" />
                                 <asp:BoundField DataField="MeasurementName" HeaderText="Measurement" />
-                                
+                                <asp:BoundField DataField="IsReject" Visible="false" />
+                                <asp:TemplateField HeaderText="Action">
+                                    <ItemStyle Font-Size="Medium" />
+                                    <ItemTemplate>
+                                        <asp:LinkButton
+                                            ID="btnReject"
+                                            CssClass="text-danger "
+                                            runat="server"
+                                            CommandArgument='<%# Eval("RequestXrefId") %>'
+                                            data-bs-toggle="tooltip"
+                                            data-bs-offset="0,4"
+                                            data-bs-placement="top"
+                                            data-bs-html="true"
+                                            title="<span>Reject this item</span>"                                            OnClick="btnReject_Click">                                            <i class="bi bi-slash-circle-fill"></i>                                            </asp:LinkButton>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
                             </Columns>
                         </asp:GridView>
                     </div>
@@ -132,7 +153,7 @@
             <div class="toast-header">
                 <i class="bx bx-bell me-2"></i>
                 <div class="me-auto fw-semibold">Bootstrap</div>
-                <small>11 mins ago</small>
+                <small>Just now</small>
                 <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
             </div>
             <div class="toast-body">Fruitcake chocolate bar tootsie roll gummies gummies jelly beans cake.</div>
@@ -151,9 +172,9 @@
             }
         }
         function showModal() {
-        var myModal = new bootstrap.Modal(document.getElementById('viewRequestItems'));
-        myModal.show();
-    }
+            var myModal = new bootstrap.Modal(document.getElementById('viewRequestItems'));
+            myModal.show();
+        }
 
     </script>
 </asp:Content>
