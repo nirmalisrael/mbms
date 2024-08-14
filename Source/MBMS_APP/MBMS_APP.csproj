@@ -366,7 +366,6 @@
     <Content Include="WebUI\Member\Member.aspx" />
     <Content Include="WebUI\Purchase\Orders.aspx" />
     <Content Include="WebUI\Purchase\NewPurchaseRequest.aspx" />
-    <Content Include="WebUI\Purchase\PurchaseRequest.aspx" />
     <Content Include="WebUI\Staff\AddStaff.aspx" />
     <Content Include="WebUI\Staff\ViewStaff.aspx" />
     <Content Include="assets\vendor\fontawesome\less\brands.less" />
