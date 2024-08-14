@@ -41,18 +41,20 @@ namespace MBMS_APP.Business.SupportData
                 new ErrorLog().WriteLog(ex);
             }
         }
-        public void DeleteStatus(int statusId)
+        public int DeleteStatus(int statusId)
         {
+            int result = 0;
             try
             {
                 SqlParameter[] param = { new SqlParameter("StatuId", statusId),
                 new SqlParameter("ModifiedBy",1)};
-                sQLServerHandler.ExecuteNonQuery("[support].[sp_DeleteStatus]", param);
+                result = sQLServerHandler.ExecuteNonQuery("[support].[sp_DeleteStatus]", param);
             }
             catch (Exception ex)
             {
                 new ErrorLog().WriteLog(ex);
             }
+            return result;
         }
     }
 }

@@ -42,6 +42,7 @@ namespace MBMS_APP.WebUI.Member
             {
                 if (dataTable.Rows.Count > 0)
                 {
+                    CommonMethods.AddSerialNumberColumnToDataTable(dataTable);
                     gvMembers.DataSource = dataTable;
                     gvMembers.DataBind();
                 }
@@ -79,6 +80,7 @@ namespace MBMS_APP.WebUI.Member
             BindMembers();
         }
         #endregion
+
         #region Edit and Delete
         protected void btnEdit_Click(object sender, EventArgs e)
         {

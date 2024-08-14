@@ -41,6 +41,7 @@ namespace MBMS_APP.WebUI.Support_Data.Role
         {
             try
             {
+                CommonMethods.AddSerialNumberColumnToDataTable(dataTable);
                 gvRole.DataSource = dataTable;
                 gvRole.DataBind();
             }

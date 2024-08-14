@@ -1,47 +1,49 @@
 ﻿using MBMS_APP.Business.SupportData;
-using MBMS_APP.Business.Users;
 using MBMS_APP.Framework.Helper;
 using System;
+using System.Collections.Generic;
 using System.Data;
+using System.Linq;
+using System.Web;
+using System.Web.Services.Description;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace MBMS_APP.WebUI.Support_Data
 {
-    public partial class Organization : System.Web.UI.Page
+    public partial class Measurement : System.Web.UI.Page
     {
-        OrganizationService service = new OrganizationService();
-        public int OrganizationId {  get; set; }
+        MeasurementService measurementService = new MeasurementService();
+        public int MeasurementId { get; set; }
+        #region Bind Measurement
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!IsPostBack)
+            if (!IsPostBack)
             {
-                BindOrganization();
+                BindMeasurement();
             }
         }
-
-        #region Bind Organization
-        public void BindOrganization()
+        public void BindMeasurement()
         {
             try
             {
-                DataTable dataTable = service.GetOrganization();
-                LoadOrganization(dataTable);
+                DataTable datatable = measurementService.GetMeasurement();
+                LoadMeasurement(datatable);
             }
             catch (Exception ex)
             {
                 new ErrorLog().WriteLog(ex);
             }
         }
-        public void LoadOrganization(DataTable dataTable)
+        public void LoadMeasurement(DataTable dataTable)
         {
             try
             {
                 if(dataTable.Rows.Count > 0)
                 {
                     CommonMethods.AddSerialNumberColumnToDataTable(dataTable);
-                    gvOrganization.DataSource = dataTable;
-                    gvOrganization.DataBind();
+                    gvMeasurement.DataSource = dataTable;
+                    gvMeasurement.DataBind();
                 }
             }
             catch(Exception ex)
@@ -51,25 +53,26 @@ namespace MBMS_APP.WebUI.Support_Data
         }
         #endregion
 
-        #region Add Edit
-        protected void btnNewOrganization_Click(object sender, EventArgs e)
+        #region Add and Edit
+        protected void btnEdit_Click(object sender, EventArgs e)
         {
-            hfOrganization_Id.Value = string.Empty;
-            txtOrganizationName.Text = string.Empty;
+            string organizationId = ((LinkButton)sender).CommandArgument;
+            MeasurementId = int.Parse(organizationId);
+            EditMeasurement(MeasurementId);
             string script = "showModal();";
             ClientScript.RegisterStartupScript(this.GetType(), "Popup", script, true);
         }
-        public void EditOrganization(int organizationId)
+        public void EditMeasurement(int measurementId)
         {
             try
             {
-                if (organizationId > 0)
+                if (measurementId > 0)
                 {
-                    DataTable dataTable = service.GetOrganization(organizationId);
+                    DataTable dataTable = measurementService.GetMeasurement(measurementId);
                     if (dataTable.Rows.Count > 0)
                     {
-                        txtOrganizationName.Text = dataTable.Rows[0]["OrganizationName"].ToString();
-                        hfOrganization_Id.Value = organizationId.ToString();
+                        hfMeasurement_Id.Value = measurementId.ToString();
+                        txtMeasurementName.Text = dataTable.Rows[0]["MeasurementName"].ToString();
                     }
                 }
             }
@@ -78,31 +81,32 @@ namespace MBMS_APP.WebUI.Support_Data
                 new ErrorLog().WriteLog(ex);
             }
         }
-        protected void btnEdit_Click(object sender, EventArgs e)
+
+        protected void btnNewMeasurement_Click(object sender, EventArgs e)
         {
-            string organizationId = ((LinkButton)sender).CommandArgument;
-            OrganizationId = int.Parse(organizationId);
-            EditOrganization(OrganizationId);
+            hfMeasurement_Id.Value = string.Empty;
+            txtMeasurementName.Text = string.Empty;
             string script = "showModal();";
             ClientScript.RegisterStartupScript(this.GetType(), "Popup", script, true);
         }
+
         protected void btnSaveChanges_Click(object sender, EventArgs e)
         {
             try
             {
-                int organizationId = string.IsNullOrEmpty(hfOrganization_Id.Value) ? 0 : int.Parse(hfOrganization_Id.Value);
-                string organizationName = txtOrganizationName.Text.Trim();
+                int measurementId = string.IsNullOrEmpty(hfMeasurement_Id.Value) ? 0 : int.Parse(hfMeasurement_Id.Value);
+                string measurementName = txtMeasurementName.Text.Trim();
 
-                if (organizationId > 0)
+                if (measurementId > 0)
                 {
-                    service.AddAndEditOrganization(organizationId, organizationName);
+                    measurementService.AddAndMeasurement(measurementId, measurementName);
                 }
                 else
                 {
-                    service.AddAndEditOrganization(0, organizationName);
+                    measurementService.AddAndMeasurement(0, measurementName);
                 }
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "closeModal", "closeModal();", true);
-                BindOrganization();
+                BindMeasurement();
             }
             catch (Exception ex)
             {
@@ -112,6 +116,10 @@ namespace MBMS_APP.WebUI.Support_Data
         #endregion
 
         #region Delete
+        protected void btnbutton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/measurement");
+        }
         protected void btnDelete_Click(object sender, EventArgs e)
         {
             string confirmValue = Request.Form["confirm_value"];
@@ -120,12 +128,12 @@ namespace MBMS_APP.WebUI.Support_Data
                 try
                 {
                     string arg = ((LinkButton)sender).CommandArgument;
-                    int organizationId = int.Parse(arg);
-                    int result = service.DeleteOrganization(organizationId);
+                    int measurementId = int.Parse(arg);
+                    int result = measurementService.DeleteMeasurement(measurementId);
                     if (result > 0)
                     {
                         this.Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Organization deleted successfully!');", true);
-                        BindOrganization();
+                        BindMeasurement();
                     }
                     else
                     {
@@ -137,10 +145,6 @@ namespace MBMS_APP.WebUI.Support_Data
                     new ErrorLog().WriteLog(ex);
                 }
             }
-        }
-        protected void btnbutton_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("~/organization");
         }
         #endregion
     }
