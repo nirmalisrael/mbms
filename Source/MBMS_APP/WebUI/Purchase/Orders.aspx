@@ -45,16 +45,10 @@
 
                             <asp:TemplateField HeaderText="Actions">
                                 <ItemTemplate>
-                                    <div class="dropdown">
-                                        <button type="button" class="btn p-0 hide-arrow" data-bs-toggle="modal" data-bs-target="#viewRequestItems">
-                                            <%--<i class="bx bx-dots-vertical-rounded"></i>--%>
-                                            <i class="fa-regular fa-eye me-1"></i>
-                                        </button>
-                                        <div class="dropdown-menu">
-                                            <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i>Edit</a>
-                                            <a class="dropdown-item" href="javascript:void(0);"><i class="fa-regular fa-eye me-1"></i></i>View</a>
-                                        </div>
-                                    </div>
+                                    <asp:LinkButton runat="server" ID="btnViewItems" type="button" CssClass="btn p-0 hide-arrow"  OnClick="btnViewItems_Click" 
+                                        CommandArgument='<%# Eval("RequestId") %>'>
+                                        <i class="fa-regular fa-eye me-1"></i>
+                                    </asp:LinkButton>
                                 </ItemTemplate>
                                 <ItemStyle CssClass="table-border-bottom-0" />
                             </asp:TemplateField>
@@ -81,7 +75,7 @@
             </div>
         </div>
         <div class="modal fade" id="viewRequestItems" tabindex="-1" style="display: none;" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+            <div class="modal-dialog modal-dialog-scrollable modal-xl" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="modalScrollableTitle">Modal title</h5>
@@ -94,22 +88,42 @@
                                 <asp:TextBox runat="server" ID="txtRequestName" CssClass="form-control" placeholder="June month request..   " />
                             </div>
                         </div>
-                        <div class="row g-2">
-                            <div class="col mb-0">
-                                <label for="emailLarge" class="form-label">Email</label>
-                                <input type="text" id="emailLarge" class="form-control" placeholder="xxxx@xxx.xx">
-                            </div>
-                            <div class="col mb-0">
-                                <label for="dobLarge" class="form-label">DOB</label>
-                                <input type="text" id="dobLarge" class="form-control" placeholder="DD / MM / YY">
+                        <div class="collapse" id="collapsibleForm">
+                            <div class="row g-2 mb-4">
+                                <div class="col-lg-6">
+                                    <asp:Label CssClass="form-label" runat="server" ID="lblItems" AssociatedControlID="ddlItems">Items</asp:Label>
+                                    <asp:DropDownList runat="server" ClientIDMode="Static" ID="ddlItems" CssClass="form-select"></asp:DropDownList>
+                                </div>
+                                <div class="col-lg-3">
+                                    <asp:Label CssClass="form-label" runat="server" ID="lblQuantity" AssociatedControlID="txtQuantity">Quantity</asp:Label>
+                                    <asp:TextBox runat="server" ID="txtQuantity" TextMode="Number" CssClass="form-control" placeholder="20.00" />
+                                </div>
+                                <div class="col-lg-3">
+                                    <asp:Label CssClass="form-label" runat="server" ID="lblMeasurements" AssociatedControlID="txtMeasurement">Measurements</asp:Label>
+                                    <asp:TextBox runat="server" ID="txtMeasurement" CssClass="form-control" Enabled="false" />
+                                </div>
                             </div>
                         </div>
+                        <asp:GridView runat="server" ID="gvRequestedItems" CssClass="table text-center" AutoGenerateColumns="false">
+                            <Columns>
+                                <asp:BoundField DataField="SerialNumber" HeaderText="S. No" />
+                                <asp:BoundField DataField="RequestXrefId" Visible="false" />
+                                <asp:BoundField DataField="RequestId" Visible="false" />
+                                <asp:BoundField DataField="ItemId" Visible="false" />
+                                <asp:BoundField DataField="ItemName" HeaderText="Item Name" />
+                                <asp:BoundField DataField="RequestedQuantity" HeaderText="Requested Quantity" />
+                                <asp:BoundField DataField="ApprovedQuantity" HeaderText="Approvable Quantity" />
+                                <asp:BoundField DataField="AvailableQuantity" HeaderText="Available Quantity" />
+                                <asp:BoundField DataField="MeasurementName" HeaderText="Measurement" />
+                                
+                            </Columns>
+                        </asp:GridView>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
                             Close
                         </button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#collapsibleForm" aria-expanded="false" aria-controls="collapsibleForm">Save changes</button>
                     </div>
                 </div>
             </div>
@@ -136,5 +150,10 @@
                 console.error('showToast function is not defined');
             }
         }
+        function showModal() {
+        var myModal = new bootstrap.Modal(document.getElementById('viewRequestItems'));
+        myModal.show();
+    }
+
     </script>
 </asp:Content>

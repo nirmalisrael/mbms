@@ -42,3 +42,20 @@ StackTrace :   at System.Threading.Thread.AbortInternal()
    at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
    at MBMS_APP.WebUI.Purchase.NewPurchaseRequest.btnSend_Click(Object sender, EventArgs e) in D:\Projects\WebForms\MBMS Source\Source\MBMS_APP\WebUI\Purchase\NewPurchaseRequest.aspx.cs:line 234
 -----------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------
+Date/Time  :13-08-2024 - 17:49:12
+Source/MSG :System.Web / A field or property with the name 'SerialNumber' was not found on the selected data source.
+StackTrace :   at System.Web.UI.WebControls.BoundField.TryGetSimplePropertyValue(Object dataItem, Object& data)
+   at System.Web.UI.WebControls.BoundField.GetValue(Control controlContainer)
+   at System.Web.UI.WebControls.BoundField.OnDataBindField(Object sender, EventArgs e)
+   at System.Web.UI.Control.OnDataBinding(EventArgs e)
+   at System.Web.UI.Control.DataBind(Boolean raiseOnDataBinding)
+   at System.Web.UI.Control.DataBindChildren()
+   at System.Web.UI.Control.DataBind(Boolean raiseOnDataBinding)
+   at System.Web.UI.WebControls.GridView.CreateRow(Int32 rowIndex, Int32 dataSourceIndex, DataControlRowType rowType, DataControlRowState rowState, Boolean dataBind, Object dataItem, DataControlField[] fields, TableRowCollection rows, PagedDataSource pagedDataSource)
+   at System.Web.UI.WebControls.GridView.CreateChildControls(IEnumerable dataSource, Boolean dataBinding)
+   at System.Web.UI.WebControls.CompositeDataBoundControl.PerformDataBinding(IEnumerable data)
+   at System.Web.UI.WebControls.GridView.PerformDataBinding(IEnumerable data)
+   at System.Web.UI.WebControls.DataBoundControl.OnDataSourceViewSelectCallback(IEnumerable data)
+   at MBMS_APP.WebUI.Purchsase.Orders.btnViewItems_Click(Object sender, EventArgs e)
+-----------------------------------------------------------------------------------------

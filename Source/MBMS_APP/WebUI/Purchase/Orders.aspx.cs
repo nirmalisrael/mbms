@@ -11,13 +11,13 @@ namespace MBMS_APP.WebUI.Purchsase
     public partial class Orders : Page
     {
         #region Properties
-        private PurchaseService purchaseService;
+        private PurchaseService _purchaseService;
         #endregion Properties
 
         #region Contructors
         public Orders()
         {
-            purchaseService = new PurchaseService();
+            _purchaseService = new PurchaseService();
         }
         #endregion Contructors
 
@@ -26,7 +26,7 @@ namespace MBMS_APP.WebUI.Purchsase
         {
             try
             {
-                DataSet dataSet = purchaseService.GetPurchaseRequest(0, 0, 1);
+                DataSet dataSet = _purchaseService.GetPurchaseRequest(0, 0, 1);
                 DataTable ordersDT = new DataTable();
                 ordersDT = dataSet.Tables[0];
                 CommonMethods.AddSerialNumberColumnToDataTable(ordersDT);
@@ -143,6 +143,26 @@ namespace MBMS_APP.WebUI.Purchsase
             }
         }
 
+        protected void btnViewItems_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                LinkButton btn = (LinkButton)sender;
+                int requestId = ConversionHelper.ToInt32(btn.CommandArgument);
+                if (requestId > 0)
+                {
+                    DataTable requestedItemsDT = _purchaseService.GetPurchaseRequestItems(requestId);
+                    CommonMethods.AddSerialNumberColumnToDataTable(requestedItemsDT);
+                    gvRequestedItems.DataSource = requestedItemsDT;
+                    gvRequestedItems.DataBind();
+                }
+                ClientScript.RegisterStartupScript(this.GetType(), "showModal", "showModal()", true);
+            }
+            catch (Exception ex)
+            {
+                new ErrorLog().WriteLog(ex);
+            }
+        }
         #endregion Events
     }
 }

@@ -65,15 +65,14 @@
                                             <ItemStyle Width="150px" />
                                             <ItemTemplate>
                                                 <div class="d-flex justify-content-evenly">
-                                                    <asp:LinkButton ID="btnEdit" CssClass="dropdown-item" runat="server" CommandArgument='<%# Eval("ItemId") %>' OnClick="btnEdit_Click">                                                     <i class="bx bx-edit-alt me-1"></i>                                                    </asp:LinkButton>
-                                                    <asp:LinkButton ID="btnRemove" CssClass="dropdown-item" runat="server" CommandArgument='<%# Eval("ItemId") %>' OnClick="btnRemove_Click">                                                     <i class="bx bx-trash me-1"></i>                                                    </asp:LinkButton>
+                                                    <asp:LinkButton ID="btnEdit" CssClass="" runat="server" CommandArgument='<%# Eval("ItemId") %>' OnClick="btnEdit_Click">                                                     <i class="bx bx-edit-alt me-1"></i>                                                    </asp:LinkButton>
+                                                    <asp:LinkButton ID="btnRemove" CssClass="" runat="server" CommandArgument='<%# Eval("ItemId") %>' OnClick="btnRemove_Click">                                                     <i class="bx bx-trash me-1"></i>                                                    </asp:LinkButton>
                                                 </div>
                                             </ItemTemplate>
                                         </asp:TemplateField>
                                     </Columns>
                                 </asp:GridView>
                             </div>
-
                             <div class="d-flex justify-content-end">
                                 <asp:LinkButton ID="btnDraft" runat="server" type="submit" class="btn btn-primary mx-1" OnClick="btnDraft_Click">Draft</asp:LinkButton>
                                 <asp:LinkButton ID="btnSend" runat="server" type="submit" class="btn btn-primary mx-1" OnClick="btnSend_Click">Send</asp:LinkButton>
@@ -85,26 +84,5 @@
             </div>
         </div>
     </main>
-    <%--<script type="text/javascript">
-        $(document).ready(function () {
-            $('#ddlItems').change(function () {
-                var selectedValue = $(this).val();
-                $.ajax({
-                    type: "POST",
-                    url: "<%= ResolveUrl("~/WebUI/Purchase/NewPurchaseRequest.aspx/GetMeasurementByItem") %>",
-                    data: JSON.stringify({ selectedValue: selectedValue }),
-                    contentType: "application/json; charset=utf-8",
-                    dataType: "json",
-                    success: function (response) {
-                        console.log("Response: ", response.d);
-                    },
-                    error: function (xhr, status, error) {
-                        console.error("Error: " + error);
-                    }
-                });
-            });
-        });
-    </script>--%>
-
 </asp:Content>
 
