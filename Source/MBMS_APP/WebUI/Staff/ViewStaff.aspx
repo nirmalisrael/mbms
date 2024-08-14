@@ -16,13 +16,16 @@
                 </div>
             </div>
             <div class="card">
+                <h5 class="card-header d-flex justify-content-between align-items-center">Staff Details
+                 <asp:LinkButton ID="btnNewStaff" runat="server" class="btn btn-primary ms-auto" OnClick="btnNewStaff_Click">New Staff</asp:LinkButton>
+                    </h5>
                 <div class="table-responsive text-nowrap">
                     <asp:GridView ID="gvUsers" runat="server" AutoGenerateColumns="False" CssClass="table" DataKeyNames="UserId"
                         AllowPaging="true" PageSize="10" OnPageIndexChanging="gvUsers_PageIndexChanging" HeaderStyle-CssClass="thead table-header thead-bg-color">
                         <Columns>
+                            <asp:BoundField DataField="SerialNumber" HeaderText="S.NO" />
                             <asp:BoundField DataField="FirstName" HeaderText="First Name" />
                             <asp:BoundField DataField="LastName" HeaderText="Last Name" />
-
                             <asp:TemplateField HeaderText="Gender">
                                 <ItemTemplate>
                                     <asp:Label ID="lblGender" runat="server"
@@ -59,6 +62,22 @@
                                 </ItemTemplate>
                             </asp:TemplateField>
                         </Columns>
+                        <PagerStyle CssClass="table-alt-row table-border-bottom-0" />
+                        <PagerTemplate>
+                            <nav aria-label="Page navigation">
+                                <ul class="pagination">
+                                    <li class="page-item">
+                                        <asp:LinkButton runat="server" CommandName="Page" CommandArgument="Prev" CssClass="page-link" Text="<i class='bx bx-chevron-left'></i>" />
+                                    </li>
+                                    <li class="page-item">
+                                        <asp:Label ID="lblCurrentPage" Text="1" runat="server" CssClass="bx page-link" />
+                                    </li>
+                                    <li class="page-item">
+                                        <asp:LinkButton runat="server" CommandName="Page" CommandArgument="Next" CssClass="page-link" Text="<i class='bx bx-chevron-right'></i>" />
+                                    </li>
+                                </ul>
+                            </nav>
+                        </PagerTemplate>
                     </asp:GridView>
                 </div>
             </div>

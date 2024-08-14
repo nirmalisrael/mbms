@@ -27,8 +27,10 @@ namespace MBMS_APP.WebUI.Admin
             try
             {
                 DataTable dt = userService.GetUserDetails(0, RoleId);
+                CommonMethods.AddSerialNumberColumnToDataTable(dt);
                 gvUsers.DataSource = dt;
                 gvUsers.DataBind();
+                
             }
             catch (Exception ex)
             {
@@ -37,15 +39,13 @@ namespace MBMS_APP.WebUI.Admin
         }
         #endregion
 
-        #region Page Size Change
+        #region Page Index Changing
         protected void ddlPageSize_SelectedIndexChanged(object sender, EventArgs e)
         {
             gvUsers.PageSize = ConversionHelper.ToInt32(ddlPageSize.SelectedValue);
             BindData();
         }
-        #endregion
-
-        #region Page Index Changing
+        
         protected void gvUsers_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             if (e.NewPageIndex > 0)

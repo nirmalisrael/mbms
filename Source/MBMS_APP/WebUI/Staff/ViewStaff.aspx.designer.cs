@@ -24,6 +24,15 @@ namespace MBMS_APP.WebUI.Staff
         protected global::System.Web.UI.WebControls.DropDownList ddlPageSize;
 
         /// <summary>
+        /// btnNewStaff control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnNewStaff;
+
+        /// <summary>
         /// gvUsers control.
         /// </summary>
         /// <remarks>

@@ -27,6 +27,7 @@ namespace MBMS_APP.WebUI.Staff
             try
             {
                 DataTable dt = userService.GetUserDetails(0, RoleId);
+                CommonMethods.AddSerialNumberColumnToDataTable(dt);
                 gvUsers.DataSource = dt;
                 gvUsers.DataBind();
             }
@@ -91,8 +92,9 @@ namespace MBMS_APP.WebUI.Staff
             Response.Redirect("~/add-staff?UserId=" + userId);
         }
 
-
-
-
+        protected void btnNewStaff_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/add-staff");
+        }
     }
 }

@@ -55,3 +55,9 @@ StackTrace :   at MBMS_APP.DataAccess.SQLServerHandler.ExecuteNonQuery(String sQ
    at MBMS_APP.DataAccess.SQLServerHandler.ExecuteTable(String sQuery, SqlParameter[] objSqlPar, CommandType commandType) in D:\Projects\WebForms\MBMS Source\Source\MBMS_APP.DataAccess\SQLServerHandler.cs:line 74
 >>>>>>> dev
 -----------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------
+Date/Time  :13-08-2024 - 06:54:56 PM
+Source/MSG :.Net SqlClient Data Provider / Phone number must contain numeric digits only.
+StackTrace :   at MBMS_APP.DataAccess.SQLServerHandler.ExecuteNonQuery(String sQuery, SqlParameter[] objSqlPar, CommandType commandType) in D:\MBMS_WEBAPP\Source\MBMS_APP.DataAccess\SQLServerHandler.cs:line 38
+   at MBMS_APP.Business.Users.UserService.SaveOrUpdateUserDetails(User user) in D:\MBMS_WEBAPP\Source\MBMS_APP.Business\Users\UserService.cs:line 40
+-----------------------------------------------------------------------------------------

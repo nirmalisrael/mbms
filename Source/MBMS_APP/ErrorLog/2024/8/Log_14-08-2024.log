@@ -1,0 +1,36 @@
+-----------------------------------------------------------------------------------------
+Date/Time  :14-08-2024 - 09:29:47 AM
+Source/MSG :.Net SqlClient Data Provider / A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)
+StackTrace :   at MBMS_APP.DataAccess.SQLServerHandler.dsExecuteTable(String sQuery, SqlParameter[] objSqlPar, CommandType commandType) in D:\MBMS_WEBAPP\Source\MBMS_APP.DataAccess\SQLServerHandler.cs:line 113
+   at MBMS_APP.Business.Users.UserService.GetRolesAndOrganization() in D:\MBMS_WEBAPP\Source\MBMS_APP.Business\Users\UserService.cs:line 101
+-----------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------
+Date/Time  :14-08-2024 - 09:29:47 AM
+Source/MSG :System.Data / Cannot find table 0.
+StackTrace :   at System.Data.DataTableCollection.get_Item(Int32 index)
+   at MBMS_APP.WebUI.Staff.AddStaff.LoadRolesAndOrganizations() in D:\MBMS_WEBAPP\Source\MBMS_APP\WebUI\Staff\AddStaff.aspx.cs:line 46
+-----------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------
+Date/Time  :14-08-2024 - 09:34:26 AM
+Source/MSG :.Net SqlClient Data Provider / A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)
+StackTrace :   at MBMS_APP.DataAccess.SQLServerHandler.dsExecuteTable(String sQuery, SqlParameter[] objSqlPar, CommandType commandType) in D:\MBMS_WEBAPP\Source\MBMS_APP.DataAccess\SQLServerHandler.cs:line 113
+   at MBMS_APP.Business.Users.UserService.GetRolesAndOrganization() in D:\MBMS_WEBAPP\Source\MBMS_APP.Business\Users\UserService.cs:line 101
+-----------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------
+Date/Time  :14-08-2024 - 09:34:26 AM
+Source/MSG :System.Data / Cannot find table 0.
+StackTrace :   at System.Data.DataTableCollection.get_Item(Int32 index)
+   at MBMS_APP.WebUI.Admin.AddAdmin.LoadRolesAndOrganizations() in D:\MBMS_WEBAPP\Source\MBMS_APP\WebUI\Admin\AddAdmin.aspx.cs:line 43
+-----------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------
+Date/Time  :14-08-2024 - 09:34:48 AM
+Source/MSG :.Net SqlClient Data Provider / A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)
+StackTrace :   at MBMS_APP.DataAccess.SQLServerHandler.dsExecuteTable(String sQuery, SqlParameter[] objSqlPar, CommandType commandType) in D:\MBMS_WEBAPP\Source\MBMS_APP.DataAccess\SQLServerHandler.cs:line 113
+   at MBMS_APP.Business.Users.UserService.GetRolesAndOrganization() in D:\MBMS_WEBAPP\Source\MBMS_APP.Business\Users\UserService.cs:line 101
+-----------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------
+Date/Time  :14-08-2024 - 09:34:48 AM
+Source/MSG :System.Data / Cannot find table 0.
+StackTrace :   at System.Data.DataTableCollection.get_Item(Int32 index)
+   at MBMS_APP.WebUI.Member.Add_Member.LoadRolesAndOrganizations() in D:\MBMS_WEBAPP\Source\MBMS_APP\WebUI\Member\AddMember.aspx.cs:line 50
+-----------------------------------------------------------------------------------------
