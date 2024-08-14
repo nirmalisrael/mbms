@@ -54,7 +54,7 @@ namespace MBMS_APP.WebUI.Member
                 ddlRole.DataTextField = "RoleName";
                 ddlRole.DataValueField = "RoleId";
                 ddlRole.DataBind();
-                ddlRole.SelectedIndex = 0;
+                ddlRole.SelectedIndex = 2;
 
                 ddlOrganization.DataSource = organizationTable;
                 ddlOrganization.DataTextField = "OrganizationName";

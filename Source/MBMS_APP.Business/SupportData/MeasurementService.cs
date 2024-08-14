@@ -53,18 +53,20 @@ namespace MBMS_APP.Business.SupportData
                 new ErrorLog().WriteLog(ex);
             }
         }
-        public void DeleteMeasurement(int measurementId)
+        public int DeleteMeasurement(int measurementId)
         {
+            int result = 0;
             try
             {
                 SqlParameter[] param = { new SqlParameter("MeasurementId", measurementId),
                 new SqlParameter("ModifiedBy",1)};
-                sQLServerHandler.ExecuteNonQuery("[support].[sp_DeleteMeasurement]", param);
+               result = sQLServerHandler.ExecuteNonQuery("[support].[sp_DeleteMeasurement]", param);
             }
             catch (Exception ex)
             {
                 new ErrorLog().WriteLog(ex);
             }
+            return result;
         }
     }
 }

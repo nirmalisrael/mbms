@@ -28,6 +28,9 @@ namespace MBMS_APP
             // Support data
             routes.MapPageRoute("Role", "role", "~/WebUI/Support_Data/Role.aspx");
             routes.MapPageRoute("Organization", "organization", "~/WebUI/Support_Data/Organization.aspx");
+            routes.MapPageRoute("Measurement", "measurement", "~/WebUI/Support_Data/Measurement.aspx");
+            routes.MapPageRoute("Goods", "goods", "~/WebUI/Support_Data/Goods.aspx");
+            routes.MapPageRoute("Purchase Status", "purchase-status", "~/WebUI/Support_Data/PurchaseStatus.aspx");
         }
     }
 }

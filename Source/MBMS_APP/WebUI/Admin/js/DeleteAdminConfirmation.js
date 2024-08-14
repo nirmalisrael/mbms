@@ -45,3 +45,27 @@ function Role() {
     }
     document.forms[0].appendChild(confirm_value);
 }
+function Organization() {
+    var confirm_value = document.createElement('INPUT');
+    confirm_value.type = 'hidden';
+    confirm_value.name = 'confirm_value';
+    if (confirm("Are you sure you want to delete this Measurement?")) {
+        confirm_value.value = 'Yes';
+    }
+    else {
+        confirm_value.value = 'No';
+    }
+    document.forms[0].appendChild(confirm_value);
+}
+function Goods() {
+    var confirm_value = document.createElement('INPUT');
+    confirm_value.type = 'hidden';
+    confirm_value.name = 'confirm_value';
+    if (confirm("Are you sure you want to delete this Item?")) {
+        confirm_value.value = 'Yes';
+    }
+    else {
+        confirm_value.value = 'No';
+    }
+    document.forms[0].appendChild(confirm_value);
+}

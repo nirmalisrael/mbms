@@ -421,7 +421,10 @@
     <Content Include="assets\vendor\fontawesome\webfonts\fa-solid-900.woff2" />
     <Content Include="assets\vendor\fontawesome\webfonts\fa-v4compatibility.ttf" />
     <Content Include="assets\vendor\fontawesome\webfonts\fa-v4compatibility.woff2" />
+    <Content Include="WebUI\Support_Data\Goods.aspx" />
+    <Content Include="WebUI\Support_Data\Measurement.aspx" />
     <Content Include="WebUI\Support_Data\Organization.aspx" />
+    <Content Include="WebUI\Support_Data\PurchaseStatus.aspx" />
     <Content Include="WebUI\Support_Data\Role.aspx" />
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.0.js" />
@@ -576,12 +579,33 @@
     <Compile Include="WebUI\Staff\ViewStaff.aspx.designer.cs">
       <DependentUpon>ViewStaff.aspx</DependentUpon>
     </Compile>
+    <Compile Include="WebUI\Support_Data\Goods.aspx.cs">
+      <DependentUpon>Goods.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebUI\Support_Data\Goods.aspx.designer.cs">
+      <DependentUpon>Goods.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebUI\Support_Data\Measurement.aspx.cs">
+      <DependentUpon>Measurement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebUI\Support_Data\Measurement.aspx.designer.cs">
+      <DependentUpon>Measurement.aspx</DependentUpon>
+    </Compile>
     <Compile Include="WebUI\Support_Data\Organization.aspx.cs">
       <DependentUpon>Organization.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="WebUI\Support_Data\Organization.aspx.designer.cs">
       <DependentUpon>Organization.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebUI\Support_Data\PurchaseStatus.aspx.cs">
+      <DependentUpon>PurchaseStatus.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebUI\Support_Data\PurchaseStatus.aspx.designer.cs">
+      <DependentUpon>PurchaseStatus.aspx</DependentUpon>
     </Compile>
     <Compile Include="WebUI\Support_Data\Role.aspx.cs">
       <DependentUpon>Role.aspx</DependentUpon>

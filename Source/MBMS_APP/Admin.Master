@@ -39,6 +39,7 @@ data-template="vertical-menu-template-free">
         <script src="<%= ResolveUrl("~/assets/vendor/libs/jquery/jquery.js") %>"></script>
         <script src="<%= ResolveUrl("~/assets/vendor/libs/popper/popper.js") %>"></script>
         <script src="<%= ResolveUrl("~/assets/vendor/js/bootstrap.js") %>"></script>
+        <link href="<%= ResolveUrl("~/assets/css/custom.css") %>" rel="stylesheet" />
     </asp:ContentPlaceHolder>
 </head>
 <body>
@@ -176,13 +177,13 @@ data-template="vertical-menu-template-free">
                             <ul class="menu-sub">
                                 <li class="menu-item">
                                     <a href="/member" class="menu-link">
-                                        <i class="menu-icon tf-icons bx bxs-user-plus"></i>
+                                        <i class="menu-icon tf-icons bx bx-show-alt"></i>
                                         <div data-i18n="Error">View Member</div>
                                     </a>
                                 </li>
                                 <li class="menu-item">
                                     <a href="/add-member" class="menu-link">
-                                        <i class="menu-icon tf-icons bx bx-show-alt"></i>
+                                        <i class="menu-icon tf-icons bx bxs-user-plus"></i>
                                         <div data-i18n="Under Maintenance">Add Member</div>
                                     </a>
                                 </li>
@@ -292,19 +293,19 @@ data-template="vertical-menu-template-free">
                                     </a>
                                 </li>
                                 <li class="menu-item">
-                                    <a href="/member" class="menu-link">
+                                    <a href="/goods" class="menu-link">
                                         <i class="fa-solid fa-basket-shopping"></i>
                                         <div data-i18n="Error">‎ ‎ ‎Goods</div>
                                     </a>
                                 </li>
                                 <li class="menu-item">
-                                    <a href="/add-member" class="menu-link">
+                                    <a href="/measurement" class="menu-link">
                                         <i class="fa-solid fa-scale-balanced"></i>
                                         <div data-i18n="Under Maintenance">‎ ‎  Measurement</div>
                                     </a>
                                 </li>
                                 <li class="menu-item">
-                                    <a href="/member" class="menu-link">
+                                    <a href="/purchase-status" class="menu-link">
                                         <i class='bx bx-loader-circle'></i>
                                         <div data-i18n="Error"> ‎‎‎  ‎   Purchase Status</div>
                                     </a>
