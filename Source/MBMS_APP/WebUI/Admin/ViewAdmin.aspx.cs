@@ -27,10 +27,17 @@ namespace MBMS_APP.WebUI.Admin
             try
             {
                 DataTable dt = userService.GetUserDetails(0, RoleId);
-                CommonMethods.AddSerialNumberColumnToDataTable(dt);
-                gvUsers.DataSource = dt;
-                gvUsers.DataBind();
-                
+                if(dt != null &&  dt.Rows.Count > 0)
+                {
+                    CommonMethods.AddSerialNumberColumnToDataTable(dt);
+                    gvUsers.DataSource = dt;
+                    gvUsers.DataBind();
+                }
+                else
+                {
+                    gvUsers.DataSource = null;
+                    gvUsers.DataBind();
+                }
             }
             catch (Exception ex)
             {

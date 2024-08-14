@@ -22,7 +22,7 @@ namespace MBMS_APP.WebUI.Admin
                     if (!string.IsNullOrEmpty(userIdStr) && int.TryParse(userIdStr, out int userId))
                     {
                         UserId = userId;
-                        LoadMemberDetails(userId);
+                        LoadAdminDetails(userId);
                     }
                     LoadRolesAndOrganizations();
                 }
@@ -40,18 +40,21 @@ namespace MBMS_APP.WebUI.Admin
             try
             {
                 DataSet dataSet = userService.GetRolesAndOrganization();
-                DataTable roleTable = dataSet.Tables[0];
-                DataTable organizationTable = dataSet.Tables[1];
+                if(dataSet.Tables.Count > 0)
+                {
+                    DataTable roleTable = dataSet.Tables[0];
+                    DataTable organizationTable = dataSet.Tables[1];
 
-                ddlRole.DataSource = roleTable;
-                ddlRole.DataTextField = "RoleName";
-                ddlRole.DataValueField = "RoleId";
-                ddlRole.DataBind();
+                    ddlRole.DataSource = roleTable;
+                    ddlRole.DataTextField = "RoleName";
+                    ddlRole.DataValueField = "RoleId";
+                    ddlRole.DataBind();
 
-                ddlOrganization.DataSource = organizationTable;
-                ddlOrganization.DataTextField = "OrganizationName";
-                ddlOrganization.DataValueField = "OrganizationId";
-                ddlOrganization.DataBind();
+                    ddlOrganization.DataSource = organizationTable;
+                    ddlOrganization.DataTextField = "OrganizationName";
+                    ddlOrganization.DataValueField = "OrganizationId";
+                    ddlOrganization.DataBind();
+                }
             }
             catch (Exception ex)
             {
@@ -59,7 +62,7 @@ namespace MBMS_APP.WebUI.Admin
             }
         }
 
-        private void LoadMemberDetails(int userId)
+        private void LoadAdminDetails(int userId)
         {
             try
             {
@@ -112,7 +115,7 @@ namespace MBMS_APP.WebUI.Admin
         {
             try
             {
-                int gender = rbMale.Checked ? 1 : rbFemale.Checked ? 2 : 0;
+                bool gender = rbMale.Checked ?true: rbFemale.Checked;
                 int userId = ConversionHelper.ToInt32(hfUser_Id.Value);
                 User user = new User
                 {
@@ -123,7 +126,7 @@ namespace MBMS_APP.WebUI.Admin
                     IsHostel = ConversionHelper.ToBoolean(chkHostel.Checked),
                     IsStaffMember = ConversionHelper.ToBoolean(chkIsStaffmember.Checked),
                     DateOfBirth = DateTime.Parse(txtDateOfBirth.Text),
-                    Gender = gender,
+                    Gender = ConversionHelper.ToInt32(gender),
                     OrganizationId = Convert.ToInt32(ddlOrganization.SelectedValue),
                     PhoneNumber = txtPhoneNumber.Text,
                     Address = txtAddress.Text,

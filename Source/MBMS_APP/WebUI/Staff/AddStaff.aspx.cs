@@ -23,7 +23,7 @@ namespace MBMS_APP.WebUI.Staff
                     if (!string.IsNullOrEmpty(userIdStr) && int.TryParse(userIdStr, out int userId))
                     {
                         UserId = userId;
-                        LoadMemberDetails(userId);
+                        LoadStaffDetails(userId);
                     }
                     LoadRolesAndOrganizations();
 
@@ -62,7 +62,7 @@ namespace MBMS_APP.WebUI.Staff
                 new ErrorLog().WriteLog(ex);
             }
         }
-        private void LoadMemberDetails(int userId)
+        private void LoadStaffDetails(int userId)
         {
             try
             {
@@ -78,7 +78,6 @@ namespace MBMS_APP.WebUI.Staff
                         txtFirstName.Text = row["FirstName"].ToString();
                         txtLastName.Text = row["LastName"].ToString();
 
-                        // Ensure the date value is parsed correctly
                         DateTime dateOfBirth;
                         if (DateTime.TryParse(row["DateOfBirth"].ToString(), out dateOfBirth))
                         {
@@ -115,7 +114,7 @@ namespace MBMS_APP.WebUI.Staff
         {
             try
             {
-                int gender = rbMale.Checked ? 1 : rbFemale.Checked ? 2 : 0;
+                bool gender = rbMale.Checked ? true : rbFemale.Checked ;
                 int userId = ConversionHelper.ToInt32(hfUser_Id.Value);
                 User user = new User
                 {
@@ -126,7 +125,7 @@ namespace MBMS_APP.WebUI.Staff
                     IsHostel = ConversionHelper.ToBoolean(chkHostel.Checked),
                     IsStaffMember = ConversionHelper.ToBoolean(chkIsStaffmember.Checked),
                     DateOfBirth = DateTime.Parse(txtDateOfBirth.Text),
-                    Gender = gender,
+                    Gender = ConversionHelper.ToInt32(gender),
                     OrganizationId = Convert.ToInt32(ddlOrganization.SelectedValue),
                     PhoneNumber = txtPhoneNumber.Text,
                     Address = txtAddress.Text,
