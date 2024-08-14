@@ -42,15 +42,6 @@ namespace MBMS_APP.WebUI.Purchsase
         protected global::System.Web.UI.WebControls.Label lblRequestName;
 
         /// <summary>
-        /// txtRequestName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtRequestName;
-
-        /// <summary>
         /// lblItems control.
         /// </summary>
         /// <remarks>

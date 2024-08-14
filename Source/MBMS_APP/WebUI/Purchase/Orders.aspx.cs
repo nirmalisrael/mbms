@@ -156,7 +156,10 @@ namespace MBMS_APP.WebUI.Purchsase
             try
             {
                 LinkButton btn = (LinkButton)sender;
-                int requestId = ConversionHelper.ToInt32(btn.CommandArgument);
+                string[] orgs = ConversionHelper.ToString(btn.CommandArgument).Split(',');
+                int requestId = ConversionHelper.ToInt32(orgs[0]);
+                string requestName = orgs[1];
+                lblRequestName.Text = requestName;
                 if (requestId > 0)
                 {
                     DataTable requestedItemsDT = _purchaseService.GetPurchaseRequestItems(requestId);

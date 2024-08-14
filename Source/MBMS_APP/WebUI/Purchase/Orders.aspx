@@ -46,7 +46,7 @@
                             <asp:TemplateField HeaderText="Actions">
                                 <ItemTemplate>
                                     <asp:LinkButton runat="server" ID="btnViewItems" type="button" CssClass="btn p-0 hide-arrow" OnClick="btnViewItems_Click"
-                                        CommandArgument='<%# Eval("RequestId") %>'>
+                                        CommandArgument='<%# Eval("RequestId")  + "," + Eval("RequestName") %>'>
                                         <i class="fa-regular fa-eye me-1"></i>
                                     </asp:LinkButton>
                                 </ItemTemplate>
@@ -78,16 +78,10 @@
             <div class="modal-dialog modal-dialog-scrollable modal-xl" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="modalScrollableTitle">Modal title</h5>
+                        <asp:Label CssClass="modal-title h5" runat="server" ID="lblRequestName"></asp:Label>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <div class="row">
-                            <div class="col mb-3">
-                                <asp:Label CssClass="form-label" runat="server" ID="lblRequestName" AssociatedControlID="txtRequestName">Request Name</asp:Label>
-                                <asp:TextBox runat="server" ID="txtRequestName" CssClass="form-control" placeholder="June month request..   " />
-                            </div>
-                        </div>
                         <div class="collapse" id="collapsibleForm">
                             <div class="row g-2 mb-4">
                                 <div class="col-lg-6">
@@ -134,7 +128,8 @@
                                             data-bs-offset="0,4"
                                             data-bs-placement="top"
                                             data-bs-html="true"
-                                            title="<span>Reject this item</span>"                                            OnClick="btnReject_Click">                                            <i class="bi bi-slash-circle-fill"></i>                                            </asp:LinkButton>
+                                            title="<span>Reject this item</span>"
+                                            OnClick="btnReject_Click">                                            <i class="fa-regular fa-circle-xmark"></i>                                            </asp:LinkButton>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                             </Columns>
