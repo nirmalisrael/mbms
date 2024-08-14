@@ -43,5 +43,9 @@
 /Source/MBMS_APP/obj/Debug/MBMS_APP.csproj.AssemblyReference.cache
 /Source/MBMS_APP/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
 /Source/MBMS_APP/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+<<<<<<< HEAD
 /Source/MBMS_APP.DataAccess/MBMS_APP.DataAccess.csproj.user
 /.gitignore
+=======
+/Source/MBMS_APP/ErrorLog/2024/8
+>>>>>>> dev

@@ -22,6 +22,7 @@ namespace MBMS_APP.WebUI.Purchase
         {
             _itemService = new ItemService();
             _measurementService = new MeasurementService();
+            _purchaseService = new PurchaseService();
         }
         #endregion Constructors
 
@@ -230,7 +231,7 @@ namespace MBMS_APP.WebUI.Purchase
                         Session["ToastIconClass"] = "bx bx-error me-2";
                         Session["ToastTitle"] = "Failure";
                     }
-                    Response.Redirect("~/pruchase-orders");
+                    Response.Redirect("~/purchase-orders", false);
                 }
             }
             catch (Exception ex)
@@ -249,7 +250,7 @@ namespace MBMS_APP.WebUI.Purchase
         {
             DataTable dt = ViewState["RequestedItemsDT"] as DataTable;
             Session["ToastMessage"] = "Failed to send purchase request!";
-            Session["ToastType"] = "bg-danger";
+            Session["ToastType"] = "bg-success";
             Session["ToastIconClass"] = "bx bx-error me-2";
             Session["ToastTitle"] = "Failure";
 
